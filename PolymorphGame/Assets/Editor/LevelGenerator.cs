@@ -343,10 +343,10 @@ public class LevelGenerator : EditorWindow
 	void GenerateHoleForRat (int i, int j)
 	{
 		Vector3 newPosition = new Vector3 (i, 0.0f, j);
-		newPosition.y += 1.0f;
 
 		GameObject go = (GameObject)Instantiate (floorPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
+		newPosition.y += 2.0f;
 		go = (GameObject)Instantiate (wallWithHolePrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
