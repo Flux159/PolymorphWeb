@@ -10,15 +10,9 @@ public class MonsterFocus : MonoBehaviour, IFocusable
 
 	public bool OnFocus ()
 	{
-
-		GameObject monster = transform.gameObject;
-		print ("monster name:" + monster.name);
-		GameObject newPlayerController = null;
-		newPlayerController = (GameObject)Instantiate (playerController,
-		     monster.transform.position, monster.transform.rotation);
-
-		GameObject.Destroy (this);
-
+		Instantiate (playerController, transform.gameObject.transform.position, transform.gameObject.transform.rotation);
+		transform.gameObject.SetActive (false);
+		//GameObject.Destroy (transform.gameObject, 2.0f);
 		return true;
 	}
 
