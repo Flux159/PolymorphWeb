@@ -3,7 +3,7 @@ using System.Collections;
 
 public interface IFocusable
 {
-	void OnFocus ();
+	bool OnFocus ();
 
 	bool IsFocusable ();
 }

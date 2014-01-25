@@ -24,9 +24,10 @@ public class DoorUp : MonoBehaviour, IFocusable
 		transform.position = Vector3.Lerp (transform.position, newPosition, smooth * Time.deltaTime);
 	}
 
-	public void OnFocus ()
+	public bool OnFocus ()
 	{
 		openDoor = true;
+		return false;
 	}
 	
 	public bool IsFocusable ()
