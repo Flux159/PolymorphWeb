@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DoorUp : MonoBehaviour {
+public class DoorUp : MonoBehaviour, IFocusable
+{
 	public bool openDoor;
 	private Vector3 newPosition;
 	public float smooth = 1;
 
-	void Awake() {
+	void Awake ()
+	{
 		newPosition = transform.position + Vector3.up * 3;
 	}
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if (openDoor) {
 			PositionChanging ();
 		}
@@ -19,5 +22,15 @@ public class DoorUp : MonoBehaviour {
 	{
 
 		transform.position = Vector3.Lerp (transform.position, newPosition, smooth * Time.deltaTime);
+	}
+
+	public void OnFocus ()
+	{
+		openDoor = true;
+	}
+	
+	public bool IsFocusable ()
+	{
+		return ! openDoor;
 	}
 }

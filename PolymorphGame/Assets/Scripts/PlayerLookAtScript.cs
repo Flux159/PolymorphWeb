@@ -4,32 +4,14 @@ using System.Collections;
 public class PlayerLookAtScript : MonoBehaviour
 {
 
-
-
-	class ChangedObject
-	{
-		public Renderer renderer;
-		public Material originalMaterial;
-		
-		public ChangedObject (Renderer renderer, Material material)
-		{
-			this.renderer = renderer;
-			originalMaterial = renderer.sharedMaterial;
-			renderer.material = material;
-		}
-	}
-
-	ChangedObject changedObject;
-	Material redMaterial;
+	public GameObject particlePrefab;
+	public float timeToActivate = 4.0f;
+	private float timer;
 	
 
 	// Use this for initialization
 	void Start ()
 	{
-		//rightCamera = GameObject.Find("CameraRight");
-
-		redMaterial = new Material (Shader.Find ("Diffuse"));
-		redMaterial.color = Color.red;
 	}
 
 
@@ -46,7 +28,7 @@ public class PlayerLookAtScript : MonoBehaviour
 		RaycastHit rightHit = new RaycastHit ();
 
 	
-		if (Physics.Raycast (leftRay, out leftHit, 100) && Physics.Raycast (rightRay, out rightHit, 100) &&
+		if (Physics.Raycast (leftRay, out leftHit, 100) && Physics.Raycast (rightRay, out rightHit, 10) &&
 			leftHit.collider == rightHit.collider) {
 
 			bool hitSelf = (leftHit.collider.gameObject.name == "OVRPlayerController");
@@ -55,26 +37,48 @@ public class PlayerLookAtScript : MonoBehaviour
 				return;
 			}
 
+			GameObject hitObject = leftHit.collider.gameObject;
 
-			MeshRenderer hitRenderer = leftHit.collider.gameObject.GetComponent<MeshRenderer> ();
+			// MeshRenderer hitRenderer = hitObject.GetComponent<MeshRenderer> ();
 			//if (null == hitRenderer) {print ("no renderer on object: " + leftHit.collider.gameObject.name);}
-		
-			if (changedObject != null) {
-				if (changedObject.renderer == hitRenderer) {
-					return;
-				} else {
-					changedObject.renderer.material = changedObject.originalMaterial;
+			IFocusable focus = null;
+			Component[] hitFocusables = hitObject.GetComponents (typeof(IFocusable));
+			if (hitFocusables.Length > 0) {
+				focus = (IFocusable)hitFocusables [0];
+			}
+			// changedObject = new ChangedObject (hitRenderer, redMaterial);
+			// IFocusable focus = hitObject.GetComponent<DoorUp> () as IFocusable;
+
+			if (focus == null) {
+				//focus = leftHit.collider.gameObject.GetComponent<MonsterFocus> () as IFocusable;
+			}
+
+			if (focus != null && focus.IsFocusable ()) {
+				timer += Time.deltaTime;
+				Instantiate (particlePrefab, leftHit.point, Quaternion.identity);
+				if (timer > timeToActivate) {
+					focus.OnFocus ();
+					timer = 0;
 				}
 			}
-		
-			changedObject = new ChangedObject (hitRenderer, redMaterial);
-
-		} else if (changedObject != null) {
-			changedObject.renderer.material = changedObject.originalMaterial;
-			changedObject = null;
 		}
 	}
 
+
+	float leftCrosshairX = Screen.width / 3.5f;
+	float leftCrosshairY = Screen.height / 2.0f; // 2.03f;
+	
+	float rightCrosshairX = Screen.width - Screen.width / 3.5f; // 3.4f
+	float rightCrosshairY = Screen.height / 2.0f; // 2.03f
+	
+	void OnGUI ()
+	{
+		// print ("Screen.width: " + Screen.width + " Screen.height: " + Screen.height);
+		// print ("leftCrosshairX: " + leftCrosshairX + " leftCrosshairY: " + leftCrosshairY);
+		GUI.Box (new Rect (leftCrosshairX, leftCrosshairY, 10, 10), "");
+		// print ("rightCrosshairX: " + rightCrosshairX + " rightCrosshairY: " + rightCrosshairY);
+		GUI.Box (new Rect (rightCrosshairX, rightCrosshairY, 10, 10), "");
+	}
 	
 	
 	void OnDrawGizmos ()
