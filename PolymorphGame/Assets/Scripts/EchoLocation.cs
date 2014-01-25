@@ -8,10 +8,6 @@ public class EchoLocation : MonoBehaviour {
 	/// </summary>
 	private const float echoMaxDistance = 10;
 	private List<Vector3> echoPositions;
-	GamePad gamePad;
-	public GameObject obj;
-	public GameObject line;
-	public GameObject line2;
 	public GameObject lightSource;
 /*	Vector3 lEyeForward;
 	Vector3 rEyeForward;
@@ -22,7 +18,6 @@ public class EchoLocation : MonoBehaviour {
 /*		lEye = null;
 		rEye = null;*/
 		echoPositions = new List<Vector3> ();
-		gamePad = gameObject.GetComponent<GamePad> ();
 	/*	Transform[] children = gameObject.GetComponentsInChildren<Transform>();
 		foreach(Transform tChild in children)
 		{
@@ -36,9 +31,10 @@ public class EchoLocation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown ("joystick button 0")) 
+		if (GamePad.CopyGetButton(GamePad.Button.A)) 
 		{
-			EchoLocate(obj);
+			Debug.Log("ECHO");
+			EchoLocate(lightSource);
 		}
 	}
 
@@ -96,11 +92,12 @@ public class EchoLocation : MonoBehaviour {
 			}
 			else dist--;
 		}
-		Generate (lightSource);
+		Generate (instantiate);
 	}
 
 	void Generate(GameObject create)
 	{
+		Debug.Log ("GEN");
 		foreach (Vector3 pos in echoPositions) 
 		{
 			Instantiate(create, pos, new Quaternion());

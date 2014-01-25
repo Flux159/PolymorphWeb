@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: 05d9cbd418ab5ae4297200e99579498c
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - obj: {instanceID: 0}
+  - line: {instanceID: 0}
+  - line2: {instanceID: 0}
+  - lightSource: {fileID: 100000, guid: cd9a25ca8b5e57d46858da62f6170441, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
