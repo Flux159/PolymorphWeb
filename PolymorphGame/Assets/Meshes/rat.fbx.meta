@@ -1,0 +1,456 @@
+fileFormatVersion: 2
+guid: fcf18de0a2f04426b9e0fbaf0c97cbcc
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: head
+    100002: head_handle
+    100004: head_tip
+    100006: hips
+    100008: hips_handle
+    100010: ikHandle1
+    100012: ikHandle2
+    100014: ikHandle3
+    100016: ikHandle4
+    100018: left_foot
+    100020: left_foot_handle
+    100022: left_foot_tip
+    100024: left_forearm
+    100026: left_hand
+    100028: left_hand_handle
+    100030: left_hand_tip
+    100032: left_shin
+    100034: left_shoulder
+    100036: left_thigh
+    100038: master_handle
+    100040: Mesh
+    100042: //RootNode
+    100044: right_foot
+    100046: right_foot_handle
+    100048: right_foot_tip
+    100050: right_forearm
+    100052: right_hand
+    100054: right_hand_handle
+    100056: right_hand_tip
+    100058: right_shin
+    100060: right_shoulder
+    100062: right_thigh
+    100064: shoulders_handle
+    100066: Spine1
+    100068: Spine2
+    100070: spine_handle
+    100072: tail10
+    100074: tail11
+    100076: tail12
+    100078: tail2
+    100080: tail3
+    100082: tail4
+    100084: tail5
+    100086: tail6
+    100088: tail7
+    100090: tail8
+    100092: tail9
+    100094: tail_handle
+    100096: tail_handle1
+    100098: tail_handle2
+    100100: tail_handle3
+    100102: tail_handle4
+    100104: tail_handle5
+    100106: tail_handle6
+    100108: tail_handle7
+    100110: tail_handle8
+    100112: tail_handle9
+    400000: head
+    400002: head_handle
+    400004: head_tip
+    400006: hips
+    400008: hips_handle
+    400010: ikHandle1
+    400012: ikHandle2
+    400014: ikHandle3
+    400016: ikHandle4
+    400018: left_foot
+    400020: left_foot_handle
+    400022: left_foot_tip
+    400024: left_forearm
+    400026: left_hand
+    400028: left_hand_handle
+    400030: left_hand_tip
+    400032: left_shin
+    400034: left_shoulder
+    400036: left_thigh
+    400038: master_handle
+    400040: Mesh
+    400042: //RootNode
+    400044: right_foot
+    400046: right_foot_handle
+    400048: right_foot_tip
+    400050: right_forearm
+    400052: right_hand
+    400054: right_hand_handle
+    400056: right_hand_tip
+    400058: right_shin
+    400060: right_shoulder
+    400062: right_thigh
+    400064: shoulders_handle
+    400066: Spine1
+    400068: Spine2
+    400070: spine_handle
+    400072: tail10
+    400074: tail11
+    400076: tail12
+    400078: tail2
+    400080: tail3
+    400082: tail4
+    400084: tail5
+    400086: tail6
+    400088: tail7
+    400090: tail8
+    400092: tail9
+    400094: tail_handle
+    400096: tail_handle1
+    400098: tail_handle2
+    400100: tail_handle3
+    400102: tail_handle4
+    400104: tail_handle5
+    400106: tail_handle6
+    400108: tail_handle7
+    400110: tail_handle8
+    400112: tail_handle9
+    4300000: Mesh
+    7400000: Idle
+    7400002: Run
+    9500000: //RootNode
+    13700000: Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 95
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/left_thigh
+        weight: 1
+      - path: hips/left_thigh/left_shin
+        weight: 1
+      - path: hips/left_thigh/left_shin/left_foot
+        weight: 1
+      - path: hips/left_thigh/left_shin/left_foot/left_foot_tip
+        weight: 1
+      - path: hips/right_thigh
+        weight: 1
+      - path: hips/right_thigh/right_shin
+        weight: 1
+      - path: hips/right_thigh/right_shin/right_foot
+        weight: 1
+      - path: hips/right_thigh/right_shin/right_foot/right_foot_tip
+        weight: 1
+      - path: hips/Spine1
+        weight: 1
+      - path: hips/Spine1/Spine2
+        weight: 1
+      - path: hips/Spine1/Spine2/head
+        weight: 1
+      - path: hips/Spine1/Spine2/head/head_tip
+        weight: 1
+      - path: hips/Spine1/Spine2/left_shoulder
+        weight: 1
+      - path: hips/Spine1/Spine2/left_shoulder/left_forearm
+        weight: 1
+      - path: hips/Spine1/Spine2/left_shoulder/left_forearm/left_hand
+        weight: 1
+      - path: hips/Spine1/Spine2/left_shoulder/left_forearm/left_hand/left_hand_tip
+        weight: 1
+      - path: hips/Spine1/Spine2/right_shoulder
+        weight: 1
+      - path: hips/Spine1/Spine2/right_shoulder/right_forearm
+        weight: 1
+      - path: hips/Spine1/Spine2/right_shoulder/right_forearm/right_hand
+        weight: 1
+      - path: hips/Spine1/Spine2/right_shoulder/right_forearm/right_hand/right_hand_tip
+        weight: 1
+      - path: hips/tail2
+        weight: 1
+      - path: hips/tail2/tail3
+        weight: 1
+      - path: hips/tail2/tail3/tail4
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: master_handle
+        weight: 1
+      - path: master_handle/hips_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine_handle/shoulders_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine_handle/shoulders_handle/head_handle
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5/tail_handle6
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5/tail_handle6/tail_handle7
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5/tail_handle6/tail_handle7/tail_handle8
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5/tail_handle6/tail_handle7/tail_handle8/tail_handle9
+        weight: 1
+      - path: master_handle/left_foot_handle
+        weight: 1
+      - path: master_handle/left_foot_handle/ikHandle3
+        weight: 1
+      - path: master_handle/left_hand_handle
+        weight: 1
+      - path: master_handle/left_hand_handle/ikHandle2
+        weight: 1
+      - path: master_handle/right_foot_handle
+        weight: 1
+      - path: master_handle/right_foot_handle/ikHandle4
+        weight: 1
+      - path: master_handle/right_hand_handle
+        weight: 1
+      - path: master_handle/right_hand_handle/ikHandle1
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 97
+      lastFrame: 121
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/left_thigh
+        weight: 1
+      - path: hips/left_thigh/left_shin
+        weight: 1
+      - path: hips/left_thigh/left_shin/left_foot
+        weight: 1
+      - path: hips/left_thigh/left_shin/left_foot/left_foot_tip
+        weight: 1
+      - path: hips/right_thigh
+        weight: 1
+      - path: hips/right_thigh/right_shin
+        weight: 1
+      - path: hips/right_thigh/right_shin/right_foot
+        weight: 1
+      - path: hips/right_thigh/right_shin/right_foot/right_foot_tip
+        weight: 1
+      - path: hips/Spine1
+        weight: 1
+      - path: hips/Spine1/Spine2
+        weight: 1
+      - path: hips/Spine1/Spine2/head
+        weight: 1
+      - path: hips/Spine1/Spine2/head/head_tip
+        weight: 1
+      - path: hips/Spine1/Spine2/left_shoulder
+        weight: 1
+      - path: hips/Spine1/Spine2/left_shoulder/left_forearm
+        weight: 1
+      - path: hips/Spine1/Spine2/left_shoulder/left_forearm/left_hand
+        weight: 1
+      - path: hips/Spine1/Spine2/left_shoulder/left_forearm/left_hand/left_hand_tip
+        weight: 1
+      - path: hips/Spine1/Spine2/right_shoulder
+        weight: 1
+      - path: hips/Spine1/Spine2/right_shoulder/right_forearm
+        weight: 1
+      - path: hips/Spine1/Spine2/right_shoulder/right_forearm/right_hand
+        weight: 1
+      - path: hips/Spine1/Spine2/right_shoulder/right_forearm/right_hand/right_hand_tip
+        weight: 1
+      - path: hips/tail2
+        weight: 1
+      - path: hips/tail2/tail3
+        weight: 1
+      - path: hips/tail2/tail3/tail4
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+        weight: 1
+      - path: hips/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+        weight: 1
+      - path: master_handle
+        weight: 1
+      - path: master_handle/hips_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine_handle/shoulders_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine_handle/shoulders_handle/head_handle
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5/tail_handle6
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5/tail_handle6/tail_handle7
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5/tail_handle6/tail_handle7/tail_handle8
+        weight: 1
+      - path: master_handle/hips_handle/tail_handle/tail_handle1/tail_handle2/tail_handle3/tail_handle4/tail_handle5/tail_handle6/tail_handle7/tail_handle8/tail_handle9
+        weight: 1
+      - path: master_handle/left_foot_handle
+        weight: 1
+      - path: master_handle/left_foot_handle/ikHandle3
+        weight: 1
+      - path: master_handle/left_hand_handle
+        weight: 1
+      - path: master_handle/left_hand_handle/ikHandle2
+        weight: 1
+      - path: master_handle/right_foot_handle
+        weight: 1
+      - path: master_handle/right_foot_handle/ikHandle4
+        weight: 1
+      - path: master_handle/right_hand_handle
+        weight: 1
+      - path: master_handle/right_hand_handle/ikHandle1
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 

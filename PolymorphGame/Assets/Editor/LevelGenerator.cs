@@ -355,9 +355,13 @@ public class LevelGenerator : EditorWindow
 	{
 		GenerateFloor (i, j);
 
-		Vector3 newPosition = new Vector3 (i, 3.0f, j);
+		Vector3 newPosition = new Vector3 (i, 0.0f, j);
 
-		GameObject go = (GameObject)Instantiate (wallWithHolePrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (floorPrefab, newPosition, Quaternion.identity);
+		go.transform.parent = LevelTransform;
+
+		newPosition.y += 1.0f;
+		go = (GameObject)Instantiate (wallWithHolePrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
 
