@@ -53,7 +53,7 @@ public class OVRPlayerControllerEditor : Editor
 	}
 
 	// OnInspectorGUI
-	public override void OnInspectorGUI()
+	/*public override void OnInspectorGUI()
 	{
 		GUI.color = Color.white;
 		
@@ -81,6 +81,6 @@ public class OVRPlayerControllerEditor : Editor
 		}
 		
 		Undo.ClearSnapshotTarget();
-	}		
+	}		*/
 }
 

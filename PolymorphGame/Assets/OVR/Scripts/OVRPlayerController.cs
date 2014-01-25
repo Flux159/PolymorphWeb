@@ -50,14 +50,14 @@ public class OVRPlayerController : OVRComponent
 {
 	protected CharacterController 	Controller 		 = null;
 	protected OVRCameraController 	CameraController = null;
-
+	
 	public float Acceleration 	   = 0.1f;
 	public float Damping 		   = 0.15f;
 	public float BackAndSideDampen = 0.5f;
 	public float JumpForce 		   = 0.3f;
 	public float RotationAmount    = 1.5f;
 	public float GravityModifier   = 0.379f;
-		
+	public bool NoGravity = false;
 	private float   MoveScale 	   = 1.0f;
 	private Vector3 MoveThrottle   = Vector3.zero;
 	private float   FallSpeed 	   = 0.0f;
@@ -77,10 +77,10 @@ public class OVRPlayerController : OVRComponent
 	private float RotationScaleMultiplier = 1.0f; 
 	private bool  AllowMouseRotation      = true;
 	private bool  HaltUpdateMovement      = false;
-	
+
 	// TEST: Get Y from second sensor
 	private float YfromSensor2            = 0.0f;
-	
+	Transform rEye;
 	// * * * * * * * * * * * * *
 	
 	// Awake
@@ -93,7 +93,7 @@ public class OVRPlayerController : OVRComponent
 		
 		if(Controller == null)
 			Debug.LogWarning("OVRPlayerController: No CharacterController attached.");
-					
+		
 		// We use OVRCameraController to set rotations to cameras, 
 		// and to be influenced by rotation
 		OVRCameraController[] CameraControllers;
@@ -105,7 +105,11 @@ public class OVRPlayerController : OVRComponent
 			Debug.LogWarning("OVRPlayerController: More then 1 OVRCameraController attached.");
 		else
 			CameraController = CameraControllers[0];	
-	
+		Transform[] tempTrans = CameraController.gameObject.GetComponentsInChildren<Transform> ();
+		foreach (Transform t in tempTrans)
+		{
+			if(t.name == "CameraRight") rEye = t;
+		}
 		// Instantiate a Transform from the main game object (will be used to 
 		// direct the motion of the PlayerController, as well as used to rotate
 		// a visible body attached to the controller)
@@ -124,7 +128,7 @@ public class OVRPlayerController : OVRComponent
 		if(DirXform == null)
 			Debug.LogWarning("OVRPlayerController: ForwardDirection game object not found. Do not use.");
 	}
-
+	
 	// Start
 	new public virtual void Start()
 	{
@@ -133,7 +137,7 @@ public class OVRPlayerController : OVRComponent
 		InitializeInputs();	
 		SetCameras();
 	}
-		
+	
 	// Update 
 	new public virtual void Update()
 	{
@@ -148,50 +152,53 @@ public class OVRPlayerController : OVRComponent
 		}
 		
 		UpdateMovement();
-
+		
 		Vector3 moveDirection = Vector3.zero;
 		
 		float motorDamp = (1.0f + (Damping * DeltaTime));
 		MoveThrottle.x /= motorDamp;
 		MoveThrottle.y = (MoveThrottle.y > 0.0f) ? (MoveThrottle.y / motorDamp) : MoveThrottle.y;
 		MoveThrottle.z /= motorDamp;
-
+		
 		moveDirection += MoveThrottle * DeltaTime;
 		
 		// Gravity
-		if (Controller.isGrounded && FallSpeed <= 0)
-			FallSpeed = ((Physics.gravity.y * (GravityModifier * 0.002f)));	
-		else
-			FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.002f)) * DeltaTime);	
-
-		moveDirection.y += FallSpeed * DeltaTime;
-
-		// Offset correction for uneven ground
-		float bumpUpOffset = 0.0f;
-		
-		if (Controller.isGrounded && MoveThrottle.y <= 0.001f)
-		{
-			bumpUpOffset = Mathf.Max(Controller.stepOffset, 
-									 new Vector3(moveDirection.x, 0, moveDirection.z).magnitude); 
-			moveDirection -= bumpUpOffset * Vector3.up;
-		}			
-	 
-		Vector3 predictedXZ = Vector3.Scale((Controller.transform.localPosition + moveDirection), 
-											 new Vector3(1, 0, 1));	
-		
-		// Move contoller
-		Controller.Move(moveDirection);
-		
-		Vector3 actualXZ = Vector3.Scale(Controller.transform.localPosition, new Vector3(1, 0, 1));
-		
-		if (predictedXZ != actualXZ)
-			MoveThrottle += (actualXZ - predictedXZ) / DeltaTime; 
-		
+		if (!NoGravity) {
+			if (Controller.isGrounded && FallSpeed <= 0)
+				FallSpeed = ((Physics.gravity.y * (GravityModifier * 0.002f)));
+			else
+				FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.002f)) * DeltaTime);	
+			
+			moveDirection.y += FallSpeed * DeltaTime;
+			
+			// Offset correction for uneven ground
+			float bumpUpOffset = 0.0f;
+			
+			if (Controller.isGrounded && MoveThrottle.y <= 0.001f) {
+				bumpUpOffset = Mathf.Max (Controller.stepOffset, 
+				                          new Vector3 (moveDirection.x, 0, moveDirection.z).magnitude); 
+				moveDirection -= bumpUpOffset * Vector3.up;
+			}			
+			
+			Vector3 predictedXZ = Vector3.Scale ((Controller.transform.localPosition + moveDirection), 
+			                                     new Vector3 (1, 0, 1));	
+			
+			// Move contoller
+			Controller.Move (moveDirection);
+			
+			Vector3 actualXZ = Vector3.Scale (Controller.transform.localPosition, new Vector3 (1, 0, 1));
+			
+			if (predictedXZ != actualXZ)
+				MoveThrottle += (actualXZ - predictedXZ) / DeltaTime; 
+		} else {
+			//if(GamePad.CopyGetAxis(GamePad.Axis.LeftYAxis) != 0)
+				Controller.Move (moveDirection);
+		}
 		// Update rotation using CameraController transform, possibly proving some rules for 
 		// sliding the rotation for a more natural movement and body visual
 		UpdatePlayerForwardDirTransform();
 	}
-		
+	
 	// UpdateMovement
 	//
 	// COnsolidate all movement code here
@@ -202,19 +209,19 @@ public class OVRPlayerController : OVRComponent
 		// Do not apply input if we are showing a level selection display
 		if(HaltUpdateMovement == true)
 			return;
-	
+		
 		bool moveForward = false;
 		bool moveLeft  	 = false;
 		bool moveRight   = false;
 		bool moveBack    = false;
-				
+		
 		MoveScale = 1.0f;
-			
+		
 		// * * * * * * * * * * *
 		// Keyboard input
-			
+		
 		// Move
-			
+		
 		// WASD
 		if (Input.GetKey(KeyCode.W)) moveForward = true;
 		if (Input.GetKey(KeyCode.A)) moveLeft	 = true;
@@ -225,24 +232,24 @@ public class OVRPlayerController : OVRComponent
 		if (Input.GetKey(KeyCode.LeftArrow))  moveLeft 	  = true;
 		if (Input.GetKey(KeyCode.DownArrow))  moveBack 	  = true; 
 		if (Input.GetKey(KeyCode.RightArrow)) moveRight   = true; 
-			
+		
 		if ( (moveForward && moveLeft) || (moveForward && moveRight) ||
-			 (moveBack && moveLeft)    || (moveBack && moveRight) )
+		    (moveBack && moveLeft)    || (moveBack && moveRight) )
 			MoveScale = 0.70710678f;
-			
+		
 		// No positional movement if we are in the air
-		if (!Controller.isGrounded)	
+		if (!Controller.isGrounded && !NoGravity)	
 			MoveScale = 0.0f;
-			
+		
 		MoveScale *= DeltaTime;
-			
+		
 		// Compute this for key movement
 		float moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
-			
+		
 		// Run!
 		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
 			moveInfluence *= 2.0f;
-			
+		
 		if(DirXform != null)
 		{
 			if (moveForward)
@@ -254,12 +261,12 @@ public class OVRPlayerController : OVRComponent
 			if (moveRight)
 				MoveThrottle += DirXform.TransformDirection(Vector3.right * moveInfluence) * BackAndSideDampen;
 		}
-			
+		
 		// Rotate
-			
+		
 		// compute for key rotation
 		float rotateInfluence = DeltaTime * RotationAmount * RotationScaleMultiplier;
-			
+		
 		//reduce by half to avoid getting ill
 		if (Input.GetKey(KeyCode.Q)) 
 			YRotation -= rotateInfluence * 0.5f;  
@@ -268,66 +275,79 @@ public class OVRPlayerController : OVRComponent
 		
 		// * * * * * * * * * * *
 		// Mouse input
-			
+		
 		// Move
-			
+		
 		// Rotate
 		float deltaRotation = 0.0f;
 		if(AllowMouseRotation == false)
 			deltaRotation = Input.GetAxis("Mouse X") * rotateInfluence * 3.25f;
-			
+		
 		float filteredDeltaRotation = (sDeltaRotationOld * 0.0f) + (deltaRotation * 1.0f);
 		YRotation += filteredDeltaRotation;
 		sDeltaRotationOld = filteredDeltaRotation;
-			
+		
 		// * * * * * * * * * * *
 		// XBox controller input	
-			
+		
 		// Compute this for xinput movement
 		moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
-			
+		
 		// Run!
 		moveInfluence *= 1.0f + 
-					     OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftTrigger);
-			
+			//OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftTrigger);
+			GamePad.CopyGetAxis (GamePad.Axis.LeftTrigger);
+		
 		// Move
 		if(DirXform != null)
 		{
 			float leftAxisY = 
-				OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftYAxis);
-				
+				//OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftYAxis);
+				-GamePad.CopyGetAxis (GamePad.Axis.LeftYAxis);
+			
 			float leftAxisX = 
-			OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftXAxis);
-						
+				//OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftXAxis);
+				GamePad.CopyGetAxis (GamePad.Axis.LeftXAxis);
 			if(leftAxisY > 0.0f)
-	    		MoveThrottle += leftAxisY *
-				DirXform.TransformDirection(Vector3.forward * moveInfluence);
-				
+				//	{
+				//if(rEye != null)
+				MoveThrottle += leftAxisY *
+					/*DirXform.TransformDirection(Vector3.forward*/
+					(rEye.forward* moveInfluence);
+			/*else 
+					MoveThrottle += leftAxisY *
+						Vector3.forward
+						                           rEye.forward* moveInfluence);*/
+			//}
+			
 			if(leftAxisY < 0.0f)
-	    		MoveThrottle += Mathf.Abs(leftAxisY) *		
-				DirXform.TransformDirection(Vector3.back * moveInfluence) * BackAndSideDampen;
-				
+				MoveThrottle += Mathf.Abs(leftAxisY) *		
+					/*DirXform.TransformDirection( */(-rEye.forward/* Vector3.back*/ * moveInfluence) * BackAndSideDampen;
+			
 			if(leftAxisX < 0.0f)
-	    		MoveThrottle += Mathf.Abs(leftAxisX) *
-				DirXform.TransformDirection(Vector3.left * moveInfluence) * BackAndSideDampen;
-				
+			{
+				MoveThrottle += Mathf.Abs(leftAxisX) *
+					DirXform.TransformDirection(Vector3.left * moveInfluence) * BackAndSideDampen;
+			}
+			
 			if(leftAxisX > 0.0f)
 				MoveThrottle += leftAxisX *
-				DirXform.TransformDirection(Vector3.right * moveInfluence) * BackAndSideDampen;
-
+					DirXform.TransformDirection(Vector3.right * moveInfluence) * BackAndSideDampen;
+			
 		}
-			
+		
 		float rightAxisX = 
-		OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.RightXAxis);
-			
+			//OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.RightXAxis);
+			GamePad.CopyGetAxis (GamePad.Axis.RightXAxis);
+		float rightAxisY = GamePad.CopyGetAxis (GamePad.Axis.RightYAxis);
 		// Rotate
 		YRotation += rightAxisX * rotateInfluence;    
 		
-	// Update cameras direction and rotation
-	SetCameras();
-
+		// Update cameras direction and rotation
+		SetCameras();
+		
 	}
-
+	
 	// UpdatePlayerControllerRotation
 	// This function will be used to 'slide' PlayerController rotation around based on 
 	// CameraController. For now, we are simply copying the CameraController rotation into 
@@ -352,12 +372,12 @@ public class OVRPlayerController : OVRComponent
 	{
 		if (!Controller.isGrounded)
 			return false;
-
+		
 		MoveThrottle += new Vector3(0, JumpForce, 0);
-
+		
 		return true;
 	}
-
+	
 	// Stop
 	public void Stop()
 	{
@@ -426,6 +446,6 @@ public class OVRPlayerController : OVRComponent
 	{
 		HaltUpdateMovement = haltUpdateMovement;
 	}
-
+	
 }
 
