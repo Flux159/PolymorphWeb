@@ -6,7 +6,7 @@ public class MonsterFocus : MonoBehaviour, IFocusable
 	public bool alive = true;
 	public GameObject newPlayerController;
 	
-	public bool OnFocus ()
+	public virtual bool OnFocus ()
 	{
 		Instantiate (newPlayerController, transform.gameObject.transform.position, transform.gameObject.transform.rotation);
 			transform.gameObject.SetActive (false);
@@ -14,7 +14,7 @@ public class MonsterFocus : MonoBehaviour, IFocusable
 		return true;
 	}
 
-	public bool IsFocusable ()
+	public virtual bool IsFocusable ()
 	{
 		return alive;
 	}

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FishFocus : MonsterFocus {
+public class FishCharacter : MonsterFocus {
+
+	public float fogDensity = 0.5f;
 
 	public override bool OnFocus() {
 		// Get all the waters and disable them!!
@@ -10,5 +12,14 @@ public class FishFocus : MonsterFocus {
 			w.SetActive (false);
 		}
 
-		//TODO: CHRIS'S AWESOME FISH STUFF
+		//CHRIS'S AWESOME FISH STUFF
+
+		RenderSettings.fog = true;
+		RenderSettings.fogDensity = fogDensity;
+		RenderSettings.fogColor = new Color (0, 0.1f, 0.12f, .1f);
+
+		return true;
 	}
+
+}
+
