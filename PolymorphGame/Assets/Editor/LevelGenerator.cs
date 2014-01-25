@@ -30,7 +30,7 @@ public class LevelGenerator : EditorWindow
 
 	private Color PitColor = new Color (0.0f, 0.0f, 0.0f);
 	private Color WaterColor = new Color (0.0f, 148f / 255f, 255f / 255f);
-	private Color WaterWithRegularWallColor = new Color (255f, 0.0f, 0.0f);
+	private Color WaterWithRegularWallColor = new Color (255f / 255f, 0.0f, 0.0f);
 	private Color HoleForRatColor = new Color (255f / 255f, 106f / 255f, 0.0f);
 	private Color HoleForBatColor = new Color (76f / 255f, 255f / 255f, 0.0f);
 	private Color ThinWallForStickColor = new Color (0.0f, 127f / 255f, 70f / 255f);
@@ -128,12 +128,12 @@ public class LevelGenerator : EditorWindow
 
 	void GenerateLevel ()
 	{
-		LevelTransform = new GameObject().transform;
+		LevelTransform = new GameObject ().transform;
 		LevelTransform.name = LevelName;
 
 		for (int i = 0; i < texture.width; i++) {
 			for (int j = 0; j < texture.height; j++) {
-				Color currentPixel = texture.GetPixel(i,j);
+				Color currentPixel = texture.GetPixel (i, j);
 
 				//Debug.Log("GOT CURRENT PIXEL = " + Mathf.Round(currentPixel.r*255f) + "/" + Mathf.Round(currentPixel.g*255f) + "/" + Mathf.Round(currentPixel.b*255f));
 				//Debug.Log("WALL = " + Mathf.Round(RegularWallColor.r*255f) + "/" + Mathf.Round(RegularWallColor.g*255f) + "/" + Mathf.Round(RegularWallColor.b*255f));
@@ -180,9 +180,9 @@ public class LevelGenerator : EditorWindow
 	bool ColorEquals (Color a, Color b)
 	{
 		//Debug.Log ("Matching colors " + a + " and " + b);
-		bool match = ((Mathf.Round(a.r*255f) == Mathf.Round (b.r*255f))
-		              && (Mathf.Round(a.g*255f) == Mathf.Round (b.g*255f))
-		              && (Mathf.Round(a.b*255f) == Mathf.Round (b.b*255f)));
+		bool match = ((Mathf.Round (a.r * 255f) == Mathf.Round (b.r * 255f))
+			&& (Mathf.Round (a.g * 255f) == Mathf.Round (b.g * 255f))
+			&& (Mathf.Round (a.b * 255f) == Mathf.Round (b.b * 255f)));
 		return match;
 	}
 
@@ -190,14 +190,14 @@ public class LevelGenerator : EditorWindow
 	{
 		Vector3 newPosition = new Vector3 (i, 0.0f, j);
 
-		if (!LevelTransform.FindChild("Floors")) {
-			FloorTransform = new GameObject().transform;
+		if (!LevelTransform.FindChild ("Floors")) {
+			FloorTransform = new GameObject ().transform;
 			FloorTransform.name = "Floors";
 			FloorTransform.parent = LevelTransform;
 		}
 
 		//Add floor prefab at location
-		GameObject go = (GameObject) Instantiate(floorPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (floorPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = FloorTransform;
 	}
 
@@ -206,63 +206,63 @@ public class LevelGenerator : EditorWindow
 		Vector3 newPosition = new Vector3 (i, 0.0f, j);
 
 		//Add floor and Wall at location
-		GenerateFloor(i,j);
+		GenerateFloor (i, j);
 
-		if (!LevelTransform.FindChild("Walls")) {
-			WallTransform = new GameObject().transform;
+		if (!LevelTransform.FindChild ("Walls")) {
+			WallTransform = new GameObject ().transform;
 			WallTransform.name = "Walls";
 			WallTransform.parent = LevelTransform;
 		}
 		
-		GameObject go = (GameObject) Instantiate(wallPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (wallPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = WallTransform;
 	}
 
 	void GenerateRat (int i, int j)
 	{
-		GenerateFloor(i,j);
+		GenerateFloor (i, j);
 		
-		if (!LevelTransform.FindChild("Monsters")) {
-			MonsterTransform = new GameObject().transform;
+		if (!LevelTransform.FindChild ("Monsters")) {
+			MonsterTransform = new GameObject ().transform;
 			MonsterTransform.name = "Monsters";
 			MonsterTransform.parent = LevelTransform;
 		}
 
 		Vector3 newPosition = new Vector3 (i, 1.0f, j);
 
-		GameObject go = (GameObject) Instantiate(ratPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (ratPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = MonsterTransform;
 	}
 
 	void GenerateBat (int i, int j)
 	{
-		GenerateFloor(i,j);
+		GenerateFloor (i, j);
 		
-		if (!LevelTransform.FindChild("Monsters")) {
-			MonsterTransform = new GameObject().transform;
+		if (!LevelTransform.FindChild ("Monsters")) {
+			MonsterTransform = new GameObject ().transform;
 			MonsterTransform.name = "Monsters";
 			MonsterTransform.parent = LevelTransform;
 		}
 
 		Vector3 newPosition = new Vector3 (i, 3.0f, j);
 
-		GameObject go = (GameObject) Instantiate(batPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (batPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = MonsterTransform;
 	}
 
 	void GenerateFish (int i, int j)
 	{
-		GenerateFloor(i,j);
-		GenerateWater(i,j);
+		GenerateFloor (i, j);
+		GenerateWater (i, j);
 				
-		if (!LevelTransform.FindChild("Monsters")) {
-			MonsterTransform = new GameObject().transform;
+		if (!LevelTransform.FindChild ("Monsters")) {
+			MonsterTransform = new GameObject ().transform;
 			MonsterTransform.name = "Monsters";
 			MonsterTransform.parent = LevelTransform;
 		}
 
 		Vector3 newPosition = new Vector3 (i, 1.0f, j);
-		GameObject go = (GameObject) Instantiate(fishPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (fishPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = MonsterTransform;
 	}
 	/*
@@ -281,9 +281,9 @@ public class LevelGenerator : EditorWindow
 	{
 		Vector3 newPosition = new Vector3 (i, 0.0f, j);
 
-		GameObject go = (GameObject) Instantiate(floorPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (floorPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
-		go = (GameObject) Instantiate(startPrefab, newPosition, Quaternion.identity);
+		go = (GameObject)Instantiate (startPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
 
@@ -291,32 +291,32 @@ public class LevelGenerator : EditorWindow
 	{
 		Vector3 newPosition = new Vector3 (i, 0.0f, j);
 
-		GameObject go = (GameObject) Instantiate(floorPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (floorPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
-		go = (GameObject) Instantiate(exitPrefab, newPosition, Quaternion.identity);
+		go = (GameObject)Instantiate (exitPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
 
 	void GenerateDoor (int i, int j)
 	{
-		GenerateFloor(i, j);
+		GenerateFloor (i, j);
 
 		Vector3 newPosition = new Vector3 (i, 3.0f, j);
-		GameObject go = (GameObject) Instantiate(doorPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (doorPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
 
 	void GeneratePit (int i, int j)
 	{
-		if (!LevelTransform.FindChild("Pits")) {
-			PitTransform = new GameObject().transform;
+		if (!LevelTransform.FindChild ("Pits")) {
+			PitTransform = new GameObject ().transform;
 			PitTransform.name = "Pits";
 			PitTransform.parent = LevelTransform;
 		}
 		
 		Vector3 newPosition = new Vector3 (i, -0.5f, j);
 
-		GameObject go = (GameObject) Instantiate(pitPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (pitPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = PitTransform;
 	}
 
@@ -324,20 +324,20 @@ public class LevelGenerator : EditorWindow
 	{
 		Vector3 newPosition = new Vector3 (i, 0.0f, j);
 		
-		if (!LevelTransform.FindChild("Waters")) {
-			WaterTransform = new GameObject().transform;
+		if (!LevelTransform.FindChild ("Waters")) {
+			WaterTransform = new GameObject ().transform;
 			WaterTransform.name = "Waters";
 			WaterTransform.parent = LevelTransform;
 		}
 
-		GameObject go = (GameObject) Instantiate(waterPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (waterPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = WaterTransform;
 	}
 
 	void GenerateWaterWithWalls (int i, int j)
 	{
-		GenerateWater(i,j);
-		GenerateWall(i,j);
+		GenerateWater (i, j);
+		GenerateWall (i, j);
 	}
 
 	void GenerateHoleForRat (int i, int j)
@@ -345,29 +345,29 @@ public class LevelGenerator : EditorWindow
 		Vector3 newPosition = new Vector3 (i, 0.0f, j);
 		newPosition.y += 1.0f;
 
-		GameObject go = (GameObject) Instantiate(floorPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (floorPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
-		go = (GameObject) Instantiate(wallWithHolePrefab, newPosition, Quaternion.identity);
+		go = (GameObject)Instantiate (wallWithHolePrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
 
 	void GenerateHoleForBat (int i, int j)
 	{
-		GenerateFloor(i,j);
+		GenerateFloor (i, j);
 
 		Vector3 newPosition = new Vector3 (i, 3.0f, j);
 
-		GameObject go = (GameObject) Instantiate(wallWithHolePrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (wallWithHolePrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
 
 	void GenerateThinWall (int i, int j)
 	{
-		GenerateFloor(i,j);
+		GenerateFloor (i, j);
 
 		Vector3 newPosition = new Vector3 (i, 0.0f, j);
 
-		GameObject go = (GameObject) Instantiate(thinWallPrefab, newPosition, Quaternion.identity);
+		GameObject go = (GameObject)Instantiate (thinWallPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
 
