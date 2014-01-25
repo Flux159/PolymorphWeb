@@ -1,0 +1,324 @@
+fileFormatVersion: 2
+guid: 45c2facc7e115431a9eae175dcdf37d1
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: head
+    100002: head_handle
+    100004: head_nub
+    100006: hips
+    100008: hips_handle
+    100010: ikHandle1
+    100012: ikHandle2
+    100014: ikHandle3
+    100016: ikHandle4
+    100018: left_albow
+    100020: left_arm
+    100022: left_foot
+    100024: left_foot_handle
+    100026: left_hand
+    100028: left_hand_handle
+    100030: left_knee
+    100032: left_knee_PV
+    100034: left_leg
+    100036: master_handle
+    100038: Mesh
+    100040: neck
+    100042: right_albow
+    100044: right_arm
+    100046: right_foot
+    100048: right_foot_handle
+    100050: right_hand
+    100052: right_hand_handle
+    100054: right_knee
+    100056: right_knee_PV
+    100058: right_leg
+    100060: spine1
+    100062: spine1_handle
+    100064: spine2
+    100066: spine2_handle
+    100068: //RootNode
+    400000: head
+    400002: head_handle
+    400004: head_nub
+    400006: hips
+    400008: hips_handle
+    400010: ikHandle1
+    400012: ikHandle2
+    400014: ikHandle3
+    400016: ikHandle4
+    400018: left_albow
+    400020: left_arm
+    400022: left_foot
+    400024: left_foot_handle
+    400026: left_hand
+    400028: left_hand_handle
+    400030: left_knee
+    400032: left_knee_PV
+    400034: left_leg
+    400036: master_handle
+    400038: Mesh
+    400040: neck
+    400042: right_albow
+    400044: right_arm
+    400046: right_foot
+    400048: right_foot_handle
+    400050: right_hand
+    400052: right_hand_handle
+    400054: right_knee
+    400056: right_knee_PV
+    400058: right_leg
+    400060: spine1
+    400062: spine1_handle
+    400064: spine2
+    400066: spine2_handle
+    400068: //RootNode
+    4300000: Mesh
+    7400000: Idle
+    7400002: Run
+    9500000: //RootNode
+    13700000: Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/left_leg
+        weight: 1
+      - path: hips/left_leg/left_knee
+        weight: 1
+      - path: hips/left_leg/left_knee/left_foot
+        weight: 1
+      - path: hips/right_leg
+        weight: 1
+      - path: hips/right_leg/right_knee
+        weight: 1
+      - path: hips/right_leg/right_knee/right_foot
+        weight: 1
+      - path: hips/spine1
+        weight: 1
+      - path: hips/spine1/spine2
+        weight: 1
+      - path: hips/spine1/spine2/neck
+        weight: 1
+      - path: hips/spine1/spine2/neck/head
+        weight: 1
+      - path: hips/spine1/spine2/neck/head/head_nub
+        weight: 1
+      - path: hips/spine1/spine2/neck/left_arm
+        weight: 1
+      - path: hips/spine1/spine2/neck/left_arm/left_albow
+        weight: 1
+      - path: hips/spine1/spine2/neck/left_arm/left_albow/left_hand
+        weight: 1
+      - path: hips/spine1/spine2/neck/right_arm
+        weight: 1
+      - path: hips/spine1/spine2/neck/right_arm/right_albow
+        weight: 1
+      - path: hips/spine1/spine2/neck/right_arm/right_albow/right_hand
+        weight: 1
+      - path: master_handle
+        weight: 1
+      - path: master_handle/hips_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine1_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine1_handle/spine2_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine1_handle/spine2_handle/head_handle
+        weight: 1
+      - path: master_handle/left_foot_handle
+        weight: 1
+      - path: master_handle/left_foot_handle/ikHandle1
+        weight: 1
+      - path: master_handle/left_hand_handle
+        weight: 1
+      - path: master_handle/left_hand_handle/ikHandle3
+        weight: 1
+      - path: master_handle/left_knee_PV
+        weight: 1
+      - path: master_handle/right_foot_handle
+        weight: 1
+      - path: master_handle/right_foot_handle/ikHandle2
+        weight: 1
+      - path: master_handle/right_hand_handle
+        weight: 1
+      - path: master_handle/right_hand_handle/ikHandle4
+        weight: 1
+      - path: master_handle/right_knee_PV
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 74
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/left_leg
+        weight: 1
+      - path: hips/left_leg/left_knee
+        weight: 1
+      - path: hips/left_leg/left_knee/left_foot
+        weight: 1
+      - path: hips/right_leg
+        weight: 1
+      - path: hips/right_leg/right_knee
+        weight: 1
+      - path: hips/right_leg/right_knee/right_foot
+        weight: 1
+      - path: hips/spine1
+        weight: 1
+      - path: hips/spine1/spine2
+        weight: 1
+      - path: hips/spine1/spine2/neck
+        weight: 1
+      - path: hips/spine1/spine2/neck/head
+        weight: 1
+      - path: hips/spine1/spine2/neck/head/head_nub
+        weight: 1
+      - path: hips/spine1/spine2/neck/left_arm
+        weight: 1
+      - path: hips/spine1/spine2/neck/left_arm/left_albow
+        weight: 1
+      - path: hips/spine1/spine2/neck/left_arm/left_albow/left_hand
+        weight: 1
+      - path: hips/spine1/spine2/neck/right_arm
+        weight: 1
+      - path: hips/spine1/spine2/neck/right_arm/right_albow
+        weight: 1
+      - path: hips/spine1/spine2/neck/right_arm/right_albow/right_hand
+        weight: 1
+      - path: master_handle
+        weight: 1
+      - path: master_handle/hips_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine1_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine1_handle/spine2_handle
+        weight: 1
+      - path: master_handle/hips_handle/spine1_handle/spine2_handle/head_handle
+        weight: 1
+      - path: master_handle/left_foot_handle
+        weight: 1
+      - path: master_handle/left_foot_handle/ikHandle1
+        weight: 1
+      - path: master_handle/left_hand_handle
+        weight: 1
+      - path: master_handle/left_hand_handle/ikHandle3
+        weight: 1
+      - path: master_handle/left_knee_PV
+        weight: 1
+      - path: master_handle/right_foot_handle
+        weight: 1
+      - path: master_handle/right_foot_handle/ikHandle2
+        weight: 1
+      - path: master_handle/right_hand_handle
+        weight: 1
+      - path: master_handle/right_hand_handle/ikHandle4
+        weight: 1
+      - path: master_handle/right_knee_PV
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .180000007
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 
