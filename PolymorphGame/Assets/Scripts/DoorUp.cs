@@ -4,7 +4,7 @@ using System.Collections;
 public class DoorUp : MonoBehaviour {
 	public bool openDoor;
 	private Vector3 newPosition;
-	public float smooth;
+	public float smooth = 1;
 
 	void Awake() {
 		newPosition = transform.position + Vector3.up * 3;
