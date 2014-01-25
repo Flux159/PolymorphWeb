@@ -9,7 +9,7 @@ public class DoorUp : MonoBehaviour, IFocusable
 
 	void Awake ()
 	{
-		newPosition = transform.position + Vector3.up * 3;
+		newPosition = transform.position + Vector3.up * 4;
 	}
 	// Update is called once per frame
 	void Update ()
