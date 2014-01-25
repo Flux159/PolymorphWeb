@@ -7,25 +7,25 @@ public class LevelGenerator : EditorWindow
 
 	public Texture2D texture;
 
-	public Color FloorColor = new Color (1.0f, 1.0f, 1.0f);
-	public Color WallColor = new Color (0.0f, 0.0f, 0.0f);
+	public Color FloorColor = new Color (128f / 255f, 128f / 255f, 128f / 255f);
+	public Color WallColor = new Color (127f / 255f, 51f / 255f, 0.0f);
 
-	public Color EnemyRatColor = new Color (1.0f, 0.0f, 0.0f);
-	public Color EnemyBatColor = new Color (0.0f, 1.0f, 0.0f);
-	public Color EnemyFishColor = new Color (0.0f, 0.0f, 1.0f);
-	public Color EnemyStickColor = new Color (1.0f, 1.0f, 0.0f);
+	public Color EnemyRatColor = new Color (72f / 255f, 0.0f, 255f / 255f);
+	public Color EnemyBatColor = new Color (178f / 255f, 0.0f, 255f / 255f);
+	public Color EnemyFishColor = new Color (255f / 255f, 0.0f, 220f / 255f);
+	public Color EnemyStickColor = new Color (255f / 255f, 0.0f, 110f / 255f);
 
-	public Color StartColor = new Color (0.0f, 1.0f, 1.0f);
-	public Color ExitColor = new Color (1.0f, 0.0f, 1.0f);
+	public Color StartColor = new Color (255f / 255f, 216f / 255f, 0.0f);
+	public Color ExitColor = new Color (182f / 255f, 255f / 255f, 0.0f);
 
-	public Color DoorColor = new Color (0.5f, 0.0f, 0.0f);
+	public Color DoorColor = new Color (0.0f, 255f / 255f, 33f / 255f);
 
-	public Color PitColor = new Color (0.0f, 0.5f, 0.0f);
-	public Color WaterColor = new Color (0.0f, 0.0f, 0.5f);
-	public Color WaterWithWallColor = new Color (0.5f, 0.5f, 0.0f);
-	public Color HoleForRatColor = new Color (0.0f, 0.5f, 0.5f);
-	public Color HoleForBatColor = new Color (0.5f, 0.0f, 0.5f);
-	public Color ThinWallForStickColor = new Color (0.5f, 0.5f, 0.5f);
+	public Color PitColor = new Color (0.0f, 0.0f, 0.0f);
+	public Color WaterColor = new Color (0.0f, 148f / 255f, 255f / 255f);
+	public Color WaterWithWallColor = new Color (255f, 0.0f, 0.0f);
+	public Color HoleForRatColor = new Color (255f / 255f, 106f / 255f, 0.0f);
+	public Color HoleForBatColor = new Color (76f / 255f, 255f / 255f, 0.0f);
+	public Color ThinWallForStickColor = new Color (0.0f, 127f / 255f, 70f / 255f);
 
 	public GameObject wallPrefab;
 	public GameObject floorPrefab;
