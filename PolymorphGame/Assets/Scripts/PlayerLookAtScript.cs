@@ -58,9 +58,10 @@ public class PlayerLookAtScript : MonoBehaviour
 				Instantiate (particlePrefab, leftHit.point, Quaternion.identity);
 				if (timer > timeToActivate) {
 					bool timeToDie = focus.OnFocus ();
-					print ("timeToDie? " + timeToDie);
-					if (timeToDie)
-						Destroy (transform.parent.gameObject);
+					if (timeToDie) {
+						transform.parent.gameObject.SetActive(false);
+						//Destroy (transform.parent.gameObject);
+					}
 					timer = 0;
 				}
 			}
