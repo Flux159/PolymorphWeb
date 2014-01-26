@@ -556,7 +556,7 @@ MonoBehaviour:
   BackAndSideDampen: .5
   JumpForce: .300000012
   RotationAmount: 1.5
-  GravityModifier: .379000008
+  GravityModifier: .100000001
   NoGravity: 1
   fish: 0
   rat: 0

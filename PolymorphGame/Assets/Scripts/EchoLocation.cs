@@ -21,7 +21,8 @@ public class EchoLocation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (GamePad.CopyGetButtonDown(GamePad.Button.A)) 
+		//a button or mouse click cause echo location
+		if (GamePad.CopyGetButtonDown(GamePad.Button.A) || Input.GetMouseButtonDown(0)) 
 		{
 			EchoLocate(lightSource);
 		}
