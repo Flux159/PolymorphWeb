@@ -8,6 +8,7 @@ public class MonsterFocus : MonoBehaviour, IFocusable
 	
 	public virtual bool OnFocus ()
 	{
+		GameObject.Find ("Directional light").GetComponent<LightDimmer> ().DimLights ();
 		Instantiate (newPlayerController, transform.gameObject.transform.position, transform.gameObject.transform.rotation);
 			transform.gameObject.SetActive (false);
 		//GameObject.Destroy (transform.gameObject, 2.0f);

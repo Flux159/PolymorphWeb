@@ -291,8 +291,8 @@ MonoBehaviour:
   ipd: .064000003
   verticalFOV: 90
   CameraRootPosition: {x: 0, y: 1, z: 0}
-  NeckPosition: {x: 0, y: .699999988, z: 0}
-  EyeCenterPosition: {x: 0, y: .150000006, z: .0900000036}
+  NeckPosition: {x: 0, y: 0, z: 0}
+  EyeCenterPosition: {x: 0, y: 0, z: 0}
   UsePlayerEyeHeight: 0
   FollowOrientation: {fileID: 0}
   TrackerRotatesY: 1
@@ -360,6 +360,10 @@ MonoBehaviour:
   JumpForce: .300000012
   RotationAmount: 1.5
   GravityModifier: .379000008
+  NoGravity: 0
+  fish: 0
+  rat: 0
+  bat: 0
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
