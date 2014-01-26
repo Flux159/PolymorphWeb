@@ -62,4 +62,8 @@ public class GamePad : MonoBehaviour {
 	{
 		return Input.GetKey(buttonStrings[(int)but]);
 	}
+	public static bool CopyGetButtonDown(Button but)
+	{
+		return Input.GetKeyDown(buttonStrings[(int)but]);
+	}
 }
