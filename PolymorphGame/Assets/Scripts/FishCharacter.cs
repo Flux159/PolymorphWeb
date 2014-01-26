@@ -6,6 +6,7 @@ public class FishCharacter : MonsterFocus {
 	public float fogDensity = 0.5f;
 
 	public override bool OnFocus() {
+		GameObject.Find ("Directional light").GetComponent<LightDimmer> ().DimLights ();
 		// Get all the waters and disable them!!
 		GameObject[] waters = GameObject.FindGameObjectsWithTag ("Water");
 		foreach (GameObject w in waters) {

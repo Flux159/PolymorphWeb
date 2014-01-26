@@ -45,6 +45,11 @@ public class LightDimmer : MonoBehaviour {
 
 	public void UnDimLights()
 	{
-
+		dirLight.intensity = baseDirLightIntensity;
+		foreach (Light t in torches)
+		{
+			t.intensity = baseTorchIntensity;
+		}
+		RenderSettings.ambientLight = normAmbientColor;
 	}
 }
