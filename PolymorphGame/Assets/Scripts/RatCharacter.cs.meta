@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 8fc9161eaa0554370817b2f664480b7b
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - newPlayerController: {instanceID: 0}
+  - ratDeath: {fileID: 8300000, guid: 325f398463b8b7f4eaf14ec658aec1b1, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
