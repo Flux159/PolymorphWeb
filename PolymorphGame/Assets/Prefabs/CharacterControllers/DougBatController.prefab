@@ -319,6 +319,9 @@ MonoBehaviour:
   RotationAmount: 1.5
   GravityModifier: .379000008
   NoGravity: 1
+  fish: 0
+  rat: 0
+  bat: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -480,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6405783f3a77d0546b6d53dda09d043a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlePrefab: {fileID: 0}
+  particlePrefab: {fileID: 100000, guid: 7a598717ded698c4dbdd57c2260fa1e1, type: 2}
   timeToActivate: 4
 --- !u!114 &11400022
 MonoBehaviour:
