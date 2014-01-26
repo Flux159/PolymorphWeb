@@ -249,8 +249,7 @@ SkinnedMeshRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 10f04cb09b1584e2ca755473dddf9e6f, type: 2}
-  - {fileID: 2100000, guid: 2d396d4a62e2d47749e1b9e2dfb953e9, type: 2}
+  - {fileID: 2100000, guid: 3d1d4ee95ccbdd64082887400bceaaaf, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
