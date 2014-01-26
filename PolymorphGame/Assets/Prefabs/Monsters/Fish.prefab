@@ -26,6 +26,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
+  - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -138,6 +139,18 @@ Transform:
   m_Children:
   - {fileID: 400004}
   m_Father: {fileID: 400002}
+--- !u!65 &6500000
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -222,9 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
-  newPlayerController: {fileID: 0}
+  newPlayerController: {fileID: 100000, guid: 1fa44073ea7ca489b871d7ccff0b65d8, type: 2}
   fishDeath: {fileID: 8300000, guid: 74ec3d408e8a00142895891c2d72fe24, type: 3}
-  fogDensity: .5
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
