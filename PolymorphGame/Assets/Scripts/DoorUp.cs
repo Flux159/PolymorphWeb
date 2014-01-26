@@ -6,10 +6,11 @@ public class DoorUp : MonoBehaviour, IFocusable
 	public bool openDoor;
 	private Vector3 newPosition;
 	public float smooth = 1;
+	public Transform thingToMove;
 
 	void Awake ()
 	{
-		newPosition = transform.position + Vector3.up * 4;
+		newPosition = thingToMove.position + Vector3.up * 4;
 	}
 	// Update is called once per frame
 	void Update ()
@@ -21,7 +22,7 @@ public class DoorUp : MonoBehaviour, IFocusable
 	void PositionChanging ()
 	{
 
-		transform.position = Vector3.Lerp (transform.position, newPosition, smooth * Time.deltaTime);
+		thingToMove.position = Vector3.Lerp (thingToMove.position, newPosition, smooth * Time.deltaTime);
 	}
 
 	public bool OnFocus ()
