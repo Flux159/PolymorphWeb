@@ -27,7 +27,7 @@ public class AmuletEnd : MonoBehaviour {
 		{
 			amuletLight.intensity += 0.7f;
 			amuletLight.range += 5f;
-			if(!rendererGone && amuletLight.intensity > 7 && amuletLight.range > 100f)
+			if(!rendererGone && amuletLight.intensity > 7 && amuletLight.range > 40f)
 			{
 				RemoveRenderers();
 				rendererGone = true;
