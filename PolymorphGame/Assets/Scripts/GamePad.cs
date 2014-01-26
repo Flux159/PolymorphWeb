@@ -4,13 +4,21 @@ using System.Collections;
 public class GamePad : MonoBehaviour {
 	public enum Axis { LeftXAxis, LeftYAxis, RightXAxis, RightYAxis, RightTrigger, LeftTrigger,  DPadX, DPadY};
 	public enum Button { A, B, Y, X, L1, R1, Back, Start, LStick, RStick };
+#if UNITY_STANDALONE_WIN
 
 	//enum Buttons{A, B, Y, X, RB, LB, Back, Start, L3, R3}
 	private static string[] buttonStrings = {"joystick button 0", "joystick button 1", "joystick button 2", "joystick button 3", "joystick button 4",
 		"joystick button 5", "joystick button 6", "joystick button 7", "joystick button 8", "joystick button 9"};
 
 	private static string[] axisStrings = {"X axis", "Y axis", "4th axis", "5th axis", "10th axis", "9th axis", "6th axis", "7th axis"};
-
+#endif
+#if UNITY_STANDALONE_OSX
+	private static string[] buttonStrings = {"joystick button 16", "joystick button 17", "joystick button 19", "joystick button 18", 
+		"joystick button 13",
+		"joystick button 14", "joystick button 10", "joystick button 9", "joystick button 11", "joystick button 12"};
+	
+	private static string[] axisStrings = {"X axis", "Y axis", "3th axis", "4th axis", "6th axis", "5th axis", "6th axis", "7th axis"};
+#endif
 	/*private string a_Button = "joystick button 0";
 	private string b_Button = "joystick button 1";
 	private string y_Button = "joystick button 3";
