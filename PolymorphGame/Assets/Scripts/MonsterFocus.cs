@@ -5,12 +5,20 @@ public class MonsterFocus : MonoBehaviour, IFocusable
 {
 	public bool alive = true;
 	public GameObject newPlayerController;
-	
+	protected LightDimmer dimmer;
+
+	void Awake() {
+		dimmer = GameObject.Find ("Directional light").GetComponent<LightDimmer> ();
+	}
+
 	public virtual bool OnFocus ()
 	{
-		Instantiate (newPlayerController, transform.gameObject.transform.position, transform.gameObject.transform.rotation);
-			transform.gameObject.SetActive (false);
+		print ("PARENT MONSTER FOCUS GOOOOO");
+		GameObject newCameraController = (GameObject) Instantiate (newPlayerController, transform.position, transform.rotation);
+		OverlayGUIScript.CameraController = newCameraController.GetComponentInChildren<OVRCameraController>().gameObject;
+
 		transform.gameObject.SetActive (false);
+
 		//GameObject.Destroy (transform.gameObject, 2.0f);
 		return true;
 	}
@@ -26,23 +34,32 @@ public class MonsterFocus : MonoBehaviour, IFocusable
 		RenderSettings.fogDensity = fogDensity;
 		RenderSettings.fogColor = new Color (0, 0.1f, 0.12f, .1f);
 	}
-	
 	public void UnDoFog() {
 		RenderSettings.fog = false;
 		RenderSettings.fogDensity = 0.0f;
 	}
 
+
 	public void ShowWaterTiles() {
 		GameObject[] waters = GameObject.FindGameObjectsWithTag ("Water");
 		foreach (GameObject w in waters) {
-			w.GetComponentInChildren<MeshRenderer>().enabled = true;
+			w.GetComponent<MeshRenderer>().enabled = true;
 		}
 	}
-
 	public void HideWaterTiles() {
 		GameObject[] waters = GameObject.FindGameObjectsWithTag ("Water");
 		foreach (GameObject w in waters) {
-			w.GetComponentInChildren<MeshRenderer>().enabled = false;
+			w.GetComponent<MeshRenderer>().enabled = false;
 		}
+	}
+
+	public void DimLights() {
+		if (dimmer != null) { dimmer.DimLights(); }
+		else { Debug.LogError("DIMMER NOT FOUND!!!"); }
+	}
+
+	public void UnDimLights() {
+		if (dimmer != null) { dimmer.UnDimLights(); }
+		else { Debug.LogError("DIMMER NOT FOUND!!!"); }
 	}
 }

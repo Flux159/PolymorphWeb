@@ -6,10 +6,13 @@ public class FishCharacter : MonsterFocus {
 	public AudioClip fishDeath;
 
 	public override bool OnFocus() {
-		base.OnFocus ();
+		GameObject newCameraController = (GameObject) Instantiate (newPlayerController, transform.position, transform.rotation);
+		OverlayGUIScript.CameraController = newCameraController.GetComponentInChildren<OVRCameraController>().gameObject;
+
+		transform.gameObject.SetActive (false);
 
 		HideWaterTiles ();
-		GameObject.Find ("Directional light").GetComponent<LightDimmer> ().UnDimLights ();
+		if (dimmer != null) { dimmer.UnDimLights (); }
 		DoFog ();
 
 		return true;

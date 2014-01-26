@@ -20864,6 +20864,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 1235566449}
+  MainFlame: {fileID: 1722551706}
+  BaseFlame: {fileID: 1276927155}
+  Etincelles: {fileID: 506548684}
+  Fumee: {fileID: 650416071}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &401596639
 GameObject:
   m_ObjectHideFlags: 0
@@ -33039,6 +33046,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 1172228765}
+  MainFlame: {fileID: 1612940674}
+  BaseFlame: {fileID: 770619527}
+  Etincelles: {fileID: 350584522}
+  Fumee: {fileID: 2054352834}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &574700060
 GameObject:
   m_ObjectHideFlags: 0
@@ -34085,7 +34099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimapTexture: {fileID: 2800000, guid: b51eb8918da7240ada632884444bf0d9, type: 3}
-  CameraController: {fileID: 923440313}
+  StartingCameraController: {fileID: 923440313}
 --- !u!92 &608242751
 Behaviour:
   m_ObjectHideFlags: 0
@@ -42276,6 +42290,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 1930284875}
+  MainFlame: {fileID: 483720730}
+  BaseFlame: {fileID: 1511085745}
+  Etincelles: {fileID: 1443906871}
+  Fumee: {fileID: 757942370}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &663480894
 GameObject:
   m_ObjectHideFlags: 0
@@ -45255,6 +45276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 1331903234}
+  MainFlame: {fileID: 1388181095}
+  BaseFlame: {fileID: 1747805846}
+  Etincelles: {fileID: 1820652585}
+  Fumee: {fileID: 970950145}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &713233997
 GameObject:
   m_ObjectHideFlags: 0
@@ -45392,6 +45420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDoor: 0
   smooth: 1
+  howFarUp: 4
 --- !u!65 &716078575
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51399,57 +51428,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 808276141}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &809580392
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 809580394}
-  - 114: {fileID: 809580393}
-  - 65: {fileID: 809580395}
-  m_Layer: 0
-  m_Name: BottomlessPitCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &809580393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 809580392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1bee031ec53d4230a4c103b4345299d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &809580394
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 809580392}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.34751225, y: -2.64613271, z: 25.2035351}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1399371081}
---- !u!65 &809580395
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 809580392}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 100, y: 2, z: 100}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &809970402
 GameObject:
   m_ObjectHideFlags: 0
@@ -51554,9 +51532,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 811830989}
-  - 33: {fileID: 811830992}
-  - 23: {fileID: 811830991}
-  - 65: {fileID: 811830990}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -51578,49 +51553,6 @@ Transform:
   - {fileID: 139525601}
   - {fileID: 1634554327}
   m_Father: {fileID: 0}
---- !u!65 &811830990
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: f25491b3f8637154fa1eb4e9b01aa3e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 813764943}
-  m_GameObject: {fileID: 811830988}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &811830991
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: f25491b3f8637154fa1eb4e9b01aa3e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 813764943}
-  m_GameObject: {fileID: 811830988}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: df23174629e80c64ca5399ab46dc28a7, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortingLayerID: 0
---- !u!33 &811830992
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: f25491b3f8637154fa1eb4e9b01aa3e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 813764943}
-  m_GameObject: {fileID: 811830988}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &813764943
 Prefab:
   m_ObjectHideFlags: 0
@@ -53360,6 +53292,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 166626977}
+  MainFlame: {fileID: 299309292}
+  BaseFlame: {fileID: 906348745}
+  Etincelles: {fileID: 1633430099}
+  Fumee: {fileID: 244452069}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &853019074
 GameObject:
   m_ObjectHideFlags: 0
@@ -60133,6 +60072,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 1462693787}
+  MainFlame: {fileID: 925617206}
+  BaseFlame: {fileID: 615883916}
+  Etincelles: {fileID: 699700894}
+  Fumee: {fileID: 962390872}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &933648329
 GameObject:
   m_ObjectHideFlags: 0
@@ -61061,6 +61007,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 45538212}
+  MainFlame: {fileID: 523130634}
+  BaseFlame: {fileID: 1874198483}
+  Etincelles: {fileID: 1527138763}
+  Fumee: {fileID: 1587565212}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &954841750
 GameObject:
   m_ObjectHideFlags: 0
@@ -65049,6 +65002,10 @@ Prefab:
       objectReference: {fileID: 2800000, guid: b51eb8918da7240ada632884444bf0d9, type: 3}
     - target: {fileID: 11400000, guid: 7fa88059f27514693a64cd61ccc169b4, type: 2}
       propertyPath: CameraController
+      value: 
+      objectReference: {fileID: 923440313}
+    - target: {fileID: 11400000, guid: 7fa88059f27514693a64cd61ccc169b4, type: 2}
+      propertyPath: StartingCameraController
       value: 
       objectReference: {fileID: 923440313}
     m_RemovedComponents: []
@@ -70760,6 +70717,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 1334221424}
+  MainFlame: {fileID: 500516620}
+  BaseFlame: {fileID: 1342566679}
+  Etincelles: {fileID: 270002751}
+  Fumee: {fileID: 964531198}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &1122886844
 GameObject:
   m_ObjectHideFlags: 0
@@ -75414,6 +75378,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 117798019}
+  MainFlame: {fileID: 634221978}
+  BaseFlame: {fileID: 1832741560}
+  Etincelles: {fileID: 1182425817}
+  Fumee: {fileID: 1127449573}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &1204880525
 GameObject:
   m_ObjectHideFlags: 0
@@ -86844,7 +86815,6 @@ Transform:
   m_LocalPosition: {x: 4.15080166, y: 1.61613274, z: 3.06030059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 809580394}
   - {fileID: 155092740}
   - {fileID: 2114888401}
   m_Father: {fileID: 0}
@@ -100134,6 +100104,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 1934929028}
+  MainFlame: {fileID: 887241844}
+  BaseFlame: {fileID: 1502301609}
+  Etincelles: {fileID: 653777173}
+  Fumee: {fileID: 1570348812}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &1584710694
 GameObject:
   m_ObjectHideFlags: 0
@@ -105433,6 +105410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDoor: 0
   smooth: 1
+  howFarUp: 4
 --- !u!65 &1634554326
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -125338,6 +125316,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e1ccb9bc5e66e46b9ebc20caf6db2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchLight: {fileID: 998820196}
+  MainFlame: {fileID: 659245348}
+  BaseFlame: {fileID: 1733710737}
+  Etincelles: {fileID: 381629078}
+  Fumee: {fileID: 424065277}
+  MaxLightIntensity: 3
+  IntensityLight: 1
 --- !u!1 &1965204029
 GameObject:
   m_ObjectHideFlags: 0

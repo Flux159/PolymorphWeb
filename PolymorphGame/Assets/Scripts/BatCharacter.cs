@@ -9,7 +9,7 @@ public class BatCharacter : MonsterFocus {
 		base.OnFocus ();
 
 		ShowWaterTiles ();
-		GameObject.Find ("Directional light").GetComponent<LightDimmer> ().DimLights ();
+		if (dimmer != null) { DimLights (); }
 		UnDoFog ();
 
 		return true;

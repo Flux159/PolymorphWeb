@@ -4,24 +4,26 @@ using System.Collections;
 public class DoorUp : MonoBehaviour, IFocusable
 {
 	public bool openDoor;
-	private Vector3 newPosition;
 	public float smooth = 1;
-	public Transform thingToMove;
+	public float howFarUp = 4.0f;
+	private Vector3 newPosition;
+	private Transform thingToMove;
 
 	void Awake ()
 	{
-		newPosition = thingToMove.position + Vector3.up * 4;
+		thingToMove = transform.parent;
+		newPosition = thingToMove.position + Vector3.up * howFarUp;
 	}
-	// Update is called once per frame
+
 	void Update ()
 	{
 		if (openDoor) {
 			PositionChanging ();
 		}
 	}
+
 	void PositionChanging ()
 	{
-
 		thingToMove.position = Vector3.Lerp (thingToMove.position, newPosition, smooth * Time.deltaTime);
 	}
 

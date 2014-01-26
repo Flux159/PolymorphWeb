@@ -6,10 +6,15 @@ public class RatCharacter : MonsterFocus {
 	public AudioClip ratDeath;
 
 	public override bool OnFocus() {
-		base.OnFocus ();
+		//base.OnFocus (); // SKIP THE PARENT
+		
+		GameObject newCameraController = (GameObject) Instantiate (newPlayerController, transform.position, transform.rotation);
+		OverlayGUIScript.CameraController = newCameraController.GetComponentInChildren<OVRCameraController>().gameObject;
+
+		transform.gameObject.SetActive (false);
 
 		ShowWaterTiles ();
-		GameObject.Find ("Directional light").GetComponent<LightDimmer> ().UnDimLights ();
+		if (dimmer != null) { UnDimLights (); }
 		UnDoFog ();
 
 		return true;

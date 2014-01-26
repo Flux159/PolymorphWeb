@@ -1,8 +1,8 @@
-var i = 0.0f;
-var timeToActivate = 4.0f;
+public var timeToActivate = 4.0f;
+private var i = 0.0f;
 
 function Start() {
-renderer.material.SetFloat("_Cutoff", 1.0f);
+	renderer.material.SetFloat("_Cutoff", 1.0f);
 }
 
 function Update () { 

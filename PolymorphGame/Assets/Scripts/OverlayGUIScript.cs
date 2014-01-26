@@ -9,14 +9,16 @@ public class OverlayGUIScript : MonoBehaviour
 		LTRect imageRectRight;
 	
 		public Texture MinimapTexture;
-		public GameObject CameraController;
+		public GameObject StartingCameraController;
+		public static GameObject CameraController;
 
 		private float mapYValue = 0.6f;
 
 		void Start ()
 		{
-				imageRectLeft = ImageCenterRect (200f, 200f, true);
-				imageRectRight = ImageCenterRect (200f, 200f, false);
+			CameraController = StartingCameraController;
+			imageRectLeft = ImageCenterRect (200f, 200f, true);
+			imageRectRight = ImageCenterRect (200f, 200f, false);
 		}
 
 		LTRect ImageCenterRect (float width, float height, bool left)
@@ -38,11 +40,19 @@ public class OverlayGUIScript : MonoBehaviour
 	
 		void OnGUI ()
 		{
+				//First... need to know if you're a FISH or ANYTHING ELSE.
+				// Hacky but game jam!
+				OVRPlayerController p = CameraController.transform.parent.GetComponent<OVRPlayerController> ();
+				bool isFish = p.fish;
+
 				//'E' for keyboard, 'B' for controller
-//				if (CameraController.transform.GetChild (0).rotation.eulerAngles.y > mapYRotation) {
-				if (CameraController.transform.GetChild (0).forward.normalized.y > mapYValue) {
-						GUI.DrawTexture (imageRectLeft.rect, MinimapTexture);
-						GUI.DrawTexture (imageRectRight.rect, MinimapTexture);
+				bool showMap = (isFish) ?
+					(CameraController.transform.GetChild (0).forward.normalized.y < -mapYValue)
+				  : (CameraController.transform.GetChild (0).forward.normalized.y > mapYValue);
+					
+				if (showMap) {
+					GUI.DrawTexture (imageRectLeft.rect, MinimapTexture);
+					GUI.DrawTexture (imageRectRight.rect, MinimapTexture);
 				}
 
 //				counter += Time.deltaTime;

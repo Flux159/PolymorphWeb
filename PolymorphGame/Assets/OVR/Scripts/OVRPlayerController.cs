@@ -255,14 +255,20 @@ public class OVRPlayerController : OVRComponent
 		
 		if(DirXform != null)
 		{
-			if (moveForward)
-				MoveThrottle += DirXform.TransformDirection(Vector3.forward * moveInfluence);
-			if (moveBack)
-				MoveThrottle += DirXform.TransformDirection(Vector3.back * moveInfluence) * BackAndSideDampen;
-			if (moveLeft)
+			if (moveForward) {
+				MoveThrottle += (!bat) ? DirXform.TransformDirection(Vector3.forward * moveInfluence)
+									   : rEye.forward * moveInfluence;
+			}
+			if (moveBack) {
+				MoveThrottle += (!bat) ? DirXform.TransformDirection(Vector3.back * moveInfluence) * BackAndSideDampen
+									   : -rEye.forward * moveInfluence * BackAndSideDampen;
+			}
+			if (moveLeft) {
 				MoveThrottle += DirXform.TransformDirection(Vector3.left * moveInfluence) * BackAndSideDampen;
-			if (moveRight)
+			}
+			if (moveRight) {
 				MoveThrottle += DirXform.TransformDirection(Vector3.right * moveInfluence) * BackAndSideDampen;
+			}
 		}
 		
 		// Rotate
@@ -308,41 +314,29 @@ public class OVRPlayerController : OVRComponent
 				//OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftYAxis);
 				-GamePad.CopyGetAxis (GamePad.Axis.LeftYAxis);
 			
-			float leftAxisX = 
-				//OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.LeftXAxis);
-				GamePad.CopyGetAxis (GamePad.Axis.LeftXAxis);
-			if(leftAxisY > 0.0f)
-				//	{
-				//if(rEye != null)
-				MoveThrottle += leftAxisY *
-					/*DirXform.TransformDirection(Vector3.forward*/
-					(rEye.forward* moveInfluence);
-			/*else 
-					MoveThrottle += leftAxisY *
-						Vector3.forward
-						                           rEye.forward* moveInfluence);*/
-			//}
-			
-			if(leftAxisY < 0.0f)
-				MoveThrottle += Mathf.Abs(leftAxisY) *		
-					/*DirXform.TransformDirection( */(-rEye.forward/* Vector3.back*/ * moveInfluence) * BackAndSideDampen;
-			
-			if(leftAxisX < 0.0f)
-			{
-				MoveThrottle += Mathf.Abs(leftAxisX) *
-					DirXform.TransformDirection(Vector3.left * moveInfluence) * BackAndSideDampen;
+			float leftAxisX = GamePad.CopyGetAxis (GamePad.Axis.LeftXAxis);
+
+			if (leftAxisY > 0.0f) {
+				MoveThrottle += leftAxisY * (rEye.forward* moveInfluence);
+			}
+			if(leftAxisY < 0.0f) {
+				MoveThrottle += Mathf.Abs(leftAxisY) * (-rEye.forward * moveInfluence) * BackAndSideDampen;
 			}
 			
-			if(leftAxisX > 0.0f)
-				MoveThrottle += leftAxisX *
-					DirXform.TransformDirection(Vector3.right * moveInfluence) * BackAndSideDampen;
+			if (leftAxisX < 0.0f)
+			{
+				MoveThrottle += Mathf.Abs(leftAxisX) * DirXform.TransformDirection(Vector3.left * moveInfluence) * BackAndSideDampen;
+			}			
+			if (leftAxisX > 0.0f)
+			{
+				MoveThrottle += leftAxisX * DirXform.TransformDirection(Vector3.right * moveInfluence) * BackAndSideDampen;
+			}
 			
 		}
 		
-		float rightAxisX = 
-			//OVRGamepadController.GPC_GetAxis((int)OVRGamepadController.Axis.RightXAxis);
-			GamePad.CopyGetAxis (GamePad.Axis.RightXAxis);
+		float rightAxisX = GamePad.CopyGetAxis (GamePad.Axis.RightXAxis);
 		float rightAxisY = GamePad.CopyGetAxis (GamePad.Axis.RightYAxis);
+
 		// Rotate
 		YRotation += rightAxisX * rotateInfluence;    
 		
@@ -448,7 +442,7 @@ public class OVRPlayerController : OVRComponent
 
 	void OnTriggerEnter(Collider col)
 	{
-		if (col.transform.parent.tag == "Water" && (bat || rat || !fish))
+		if (col.transform.tag == "Water" && (bat || rat || !fish))
 			Application.LoadLevel (Application.loadedLevel); 
 	}
 

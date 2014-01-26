@@ -228,7 +228,7 @@ public class LevelGenerator : EditorWindow
 			MonsterTransform.parent = LevelTransform;
 		}
 
-		Vector3 newPosition = new Vector3 (i, 1.0f, j);
+		Vector3 newPosition = new Vector3 (i, 0.5f, j);
 
 		GameObject go = (GameObject)Instantiate (ratPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = MonsterTransform;
@@ -260,7 +260,7 @@ public class LevelGenerator : EditorWindow
 			MonsterTransform.parent = LevelTransform;
 		}
 
-		Vector3 newPosition = new Vector3 (i, 0.0f, j);
+		Vector3 newPosition = new Vector3 (i, 0.4f, j);
 		GameObject go = (GameObject)Instantiate (fishPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = MonsterTransform;
 	}
@@ -278,11 +278,10 @@ public class LevelGenerator : EditorWindow
 	
 	void GenerateStart (int i, int j)
 	{
-		Vector3 newPosition = new Vector3 (i, 0.0f, j);
+		GenerateFloor (i, j);
 
-		GameObject go = (GameObject)Instantiate (floorPrefab, newPosition, Quaternion.identity);
-		go.transform.parent = LevelTransform;
-		go = (GameObject)Instantiate (startPrefab, newPosition, Quaternion.identity);
+		Vector3 newPosition = new Vector3 (i, 0.0f, j);
+		GameObject go = (GameObject)Instantiate (startPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
 
