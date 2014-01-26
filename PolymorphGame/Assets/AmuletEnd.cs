@@ -2,13 +2,13 @@
 using System.Collections;
 
 public class AmuletEnd : MonoBehaviour {
-	float endTime;
+	public float endTime;
 	bool beginEnd;
 	float timer;
 	GameObject amulet;
 	Light amuletLight;
 	public float rotateSpeed;
-	public bool rendererGone;
+	bool rendererGone;
 	Camera[] cameras;
 	// Use this for initialization
 	void Start () {
@@ -25,8 +25,13 @@ public class AmuletEnd : MonoBehaviour {
 		amulet.transform.Rotate (new Vector3 (rotateSpeed, rotateSpeed, rotateSpeed));
 		if(beginEnd)
 		{
-			amuletLight.intensity += 0.7f;
-			amuletLight.range += 5f;
+			if(!rendererGone)
+			{
+				amuletLight.intensity += 0.7f;
+				amuletLight.range += 5f;
+			}
+			timer+= Time.deltaTime;
+			if(timer > endTime) Application.LoadLevel(0);
 			if(!rendererGone && amuletLight.intensity > 7 && amuletLight.range > 40f)
 			{
 				RemoveRenderers();
@@ -47,7 +52,7 @@ public class AmuletEnd : MonoBehaviour {
 
 	public void RemoveRenderers()
 	{
-		Debug.Log ("worked");
+//		Debug.Log ("worked");
 		foreach(Camera c in cameras)
 		{
 			c.backgroundColor = Color.white;
