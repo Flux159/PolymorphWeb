@@ -11,6 +11,8 @@ public class PlayerLookAtScript : MonoBehaviour
 
 		GameObject rightCamera;
 
+		private GameObject lifeBarObject;
+
 		void Start ()
 		{
 				leftCamera = GameObject.Find ("CameraLeft");
@@ -34,7 +36,7 @@ public class PlayerLookAtScript : MonoBehaviour
 
 						bool hitSelf = (leftHit.collider.gameObject.name == "OVRPlayerController");
 						if (hitSelf) {
-								print ("GOD DAMN IT");
+//								print ("GOD DAMN IT");
 								return;
 						}
 
@@ -52,12 +54,20 @@ public class PlayerLookAtScript : MonoBehaviour
 
 						if (focus == null) {
 								//focus = leftHit.collider.gameObject.GetComponent<MonsterFocus> () as IFocusable;
+								GameObject.Destroy (lifeBarObject);
+								timer = 0;
 						}
 
 						if (focus != null && focus.IsFocusable ()) {
 								timer += Time.deltaTime;
-								Instantiate (particlePrefab, leftHit.point, Quaternion.identity);
+								if (lifeBarObject == null) {
+										Vector3 lifeBarObjectForwardDirection = leftHit.transform.position - leftCamera.transform.position;
+										Quaternion direction = Quaternion.identity;
+										direction.SetLookRotation (lifeBarObjectForwardDirection, Vector3.up);
+										lifeBarObject = (GameObject)Instantiate (particlePrefab, leftHit.point, direction);
+								}
 								if (timer > timeToActivate) {
+										GameObject.Destroy (lifeBarObject);
 										bool timeToDie = focus.OnFocus ();
 										if (timeToDie) {
 												transform.parent.gameObject.SetActive (false);

@@ -28771,6 +28771,9 @@ MonoBehaviour:
   RotationAmount: 1.5
   GravityModifier: .379000008
   NoGravity: 0
+  fish: 0
+  rat: 0
+  bat: 0
 --- !u!114 &408837376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42863,17 +42866,16 @@ GameObject:
 --- !u!114 &608242749
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 7fa88059f27514693a64cd61ccc169b4,
-    type: 2}
-  m_PrefabInternal: {fileID: 975833888}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 608242748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164bc92dd25af4aeab6bc100042ba3f1, type: 3}
+  m_Script: {fileID: 11500000, guid: c646491aeca2d4df99506f5c83869afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinimapTexture: {fileID: 0}
-  CameraController: {fileID: 0}
+  MinimapTexture: {fileID: 2800000, guid: a9f90631ac93d4265b0933a966de125f, type: 3}
+  CameraController: {fileID: 923440313}
   fadeTime: 1
   nextDialogTime: 2
 --- !u!92 &608242751
@@ -68603,15 +68605,16 @@ Transform:
 --- !u!114 &923440317
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11400018, guid: ce816f2e6abb0504092c23ed9b970dfd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1085045706}
   m_GameObject: {fileID: 923440313}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6405783f3a77d0546b6d53dda09d043a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlePrefab: {fileID: 100000, guid: 7a598717ded698c4dbdd57c2260fa1e1, type: 2}
+  particlePrefab: {fileID: 100000, guid: e294e56d5513f43028859c06f7f14a7e, type: 2}
   timeToActivate: 4
 --- !u!1 &925617206
 GameObject:
@@ -75460,7 +75463,8 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 7fa88059f27514693a64cd61ccc169b4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7fa88059f27514693a64cd61ccc169b4, type: 2}
   m_RootGameObject: {fileID: 608242748}
   m_IsPrefabParent: 0

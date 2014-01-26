@@ -49,6 +49,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400016}
+  - 114: {fileID: 11400018}
   m_Layer: 8
   m_Name: OVRCameraController
   m_TagString: Untagged
@@ -85,7 +86,7 @@ GameObject:
   - 114: {fileID: 11400012}
   m_Layer: 0
   m_Name: OVRPlayerController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.15080166, y: 1.61613274, z: 3.06030059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -298,12 +299,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0950df82e7936c84983497630bde5b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Acceleration: .0500000007
+  Acceleration: .100000001
   Damping: .200000003
   BackAndSideDampen: .5
   JumpForce: .300000012
   RotationAmount: 1.5
   GravityModifier: .379000008
+  NoGravity: 0
+  fish: 0
+  rat: 0
+  bat: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,6 +374,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialPredictionTime: .0299999993
   ResetTrackerOnLoad: 1
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6405783f3a77d0546b6d53dda09d043a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 100000, guid: e294e56d5513f43028859c06f7f14a7e, type: 2}
+  timeToActivate: 4
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
