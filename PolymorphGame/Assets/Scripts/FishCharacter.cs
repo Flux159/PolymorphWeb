@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FishCharacter : MonsterFocus {
 
+	public AudioClip fishDeath;
 	public float fogDensity = 0.5f;
 
 	public override bool OnFocus() {
@@ -25,6 +26,9 @@ public class FishCharacter : MonsterFocus {
 
 		return true;
 	}
-
+	void OnDestroy() {
+		audio.clip = fishDeath;
+		audio.Play ();
+	}
 }
 
