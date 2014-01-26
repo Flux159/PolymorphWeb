@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 899c7da913e964538815ffeef971621f
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - newPlayerController: {instanceID: 0}
+  - fishDeath: {fileID: 8300000, guid: 74ec3d408e8a00142895891c2d72fe24, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
