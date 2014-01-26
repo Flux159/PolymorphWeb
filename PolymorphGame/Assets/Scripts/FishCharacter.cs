@@ -10,7 +10,8 @@ public class FishCharacter : MonsterFocus {
 		// Get all the waters and disable them!!
 		GameObject[] waters = GameObject.FindGameObjectsWithTag ("Water");
 		foreach (GameObject w in waters) {
-			w.SetActive (false);
+			w.GetComponentInChildren<MeshRenderer>().enabled = false;
+			//w.SetActive (false);
 		}
 
 		//CHRIS'S AWESOME FISH STUFF
@@ -18,6 +19,9 @@ public class FishCharacter : MonsterFocus {
 		RenderSettings.fog = true;
 		RenderSettings.fogDensity = fogDensity;
 		RenderSettings.fogColor = new Color (0, 0.1f, 0.12f, .1f);
+
+		Instantiate (newPlayerController, transform.gameObject.transform.position, transform.gameObject.transform.rotation);
+		transform.gameObject.SetActive (false);
 
 		return true;
 	}

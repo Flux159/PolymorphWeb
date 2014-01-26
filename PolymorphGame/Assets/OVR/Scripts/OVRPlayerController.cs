@@ -58,6 +58,9 @@ public class OVRPlayerController : OVRComponent
 	public float RotationAmount    = 1.5f;
 	public float GravityModifier   = 0.379f;
 	public bool NoGravity = false;
+	public bool fish ;
+	public bool rat;
+	public bool bat;
 	private float   MoveScale 	   = 1.0f;
 	private Vector3 MoveThrottle   = Vector3.zero;
 	private float   FallSpeed 	   = 0.0f;
@@ -436,7 +439,19 @@ public class OVRPlayerController : OVRComponent
 	{
 		AllowMouseRotation = allowMouseRotation;
 	}
-	
+
+	/*void OnTriggerStay(Collider col)
+	{
+		if (col.tag == "Water" && (bat || rat || !fish))
+						Application.LoadLevel (Application.loadedLevel); 
+	}*/
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.transform.parent.tag == "Water" && (bat || rat || !fish))
+			Application.LoadLevel (Application.loadedLevel); 
+	}
+
 	// Get/SetHaltUpdateMovement
 	public void GetHaltUpdateMovement(ref bool haltUpdateMovement)
 	{
