@@ -29,10 +29,9 @@ public class PlayerLookAtStartMenu : MonoBehaviour
 		RaycastHit rightHit = new RaycastHit ();
 		
 		
-		if (Physics.Raycast (leftRay, out leftHit, 100) && Physics.Raycast (rightRay, out rightHit, 10) &&
+		if (Physics.Raycast (leftRay, out leftHit, 1000) && Physics.Raycast (rightRay, out rightHit, 1000) &&
 		    leftHit.collider == rightHit.collider) {
 
-			
 			GameObject hitObject = leftHit.collider.gameObject;
 			
 			// MeshRenderer hitRenderer = hitObject.GetComponent<MeshRenderer> ();
@@ -44,11 +43,7 @@ public class PlayerLookAtStartMenu : MonoBehaviour
 			}
 			// changedObject = new ChangedObject (hitRenderer, redMaterial);
 			// IFocusable focus = hitObject.GetComponent<DoorUp> () as IFocusable;
-			
-			if (focus == null) {
-				//focus = leftHit.collider.gameObject.GetComponent<MonsterFocus> () as IFocusable;
-			}
-			
+
 			if (focus != null && focus.IsFocusable ()) {
 				timer += Time.deltaTime;
 				Instantiate (particlePrefab, leftHit.point, Quaternion.identity);

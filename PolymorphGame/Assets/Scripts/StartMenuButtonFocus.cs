@@ -4,13 +4,13 @@ using System.Collections;
 public class StartMenuButtonFocus : MonoBehaviour, IFocusable
 {
 	
-	public virtual bool OnFocus ()
+	public bool OnFocus ()
 	{
 		Application.LoadLevel (Application.loadedLevel + 1);
 		return false;
 	}
 	
-	public virtual bool IsFocusable ()
+	public bool IsFocusable ()
 	{
 		return true;
 	}

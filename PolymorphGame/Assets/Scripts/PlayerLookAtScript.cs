@@ -31,7 +31,7 @@ public class PlayerLookAtScript : MonoBehaviour
 				RaycastHit rightHit = new RaycastHit ();
 
 	
-				if (Physics.Raycast (leftRay, out leftHit, 100) && Physics.Raycast (rightRay, out rightHit, 10) &&
+				if (Physics.Raycast (leftRay, out leftHit, 10) && Physics.Raycast (rightRay, out rightHit, 10) &&
 						leftHit.collider == rightHit.collider) {
 
 						bool hitSelf = (leftHit.collider.gameObject.name == "OVRPlayerController");
