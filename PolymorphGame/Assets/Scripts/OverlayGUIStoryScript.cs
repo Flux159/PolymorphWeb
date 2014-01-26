@@ -27,7 +27,12 @@ public class OverlayGUIStoryScript : MonoBehaviour
 		//		private float counter = 0.0f;
 	
 		private float mapYValue = 0.6f;
-	
+
+		public float xValLeft = 275f;
+		public float xValRight = 875f;
+
+		public GUISkin skin;
+
 		void Start ()
 		{
 				centerRectLeft = CenterRect (200f, 200f, true);
@@ -84,13 +89,13 @@ public class OverlayGUIStoryScript : MonoBehaviour
 				if (left) {
 						//						float x = Screen.width / 4.0f - width / 1.5f;
 						//						float y = Screen.height / 2.0f;
-						float x = 330f;
+						float x = xValLeft;
 						float y = 400f;
 						return new LTRect (x, y, width, height);
 				} else {
 						//						float x = 3f * Screen.width / 4.0f - width / 1.5f;
 						//						float y = Screen.height / 2.0f;
-						float x = 930f;
+						float x = xValRight;
 						float y = 400f;
 						return new LTRect (x, y, width, height);
 				}
@@ -116,8 +121,28 @@ public class OverlayGUIStoryScript : MonoBehaviour
 	
 		void OnGUI ()
 		{
+
+				GUI.skin = skin;
 		
 				if (displayLabels) {
+//						OVRGUI ovrHelper = new OVRGUI ();
+//						OVRCameraController controller = CameraController.GetComponent (typeof(OVRCameraController)) as OVRCameraController;
+//						ovrHelper.SetCameraController (ref controller);
+//
+//						int w = Screen.width;
+//						int h = Screen.height;
+//
+//						ovrHelper.SetDisplayResolution (OVRDevice.HResolution, OVRDevice.VResolution);
+//						ovrHelper.SetPixelResolution (w, h);
+//
+//						string label = "Testing";
+//
+//						ovrHelper.StereoBox (centerRectLeft.rect.x, centerRectLeft.rect.y, centerRectLeft.rect.width, centerRectLeft.rect.height, ref currentLabel, Color.white);
+
+//						GUI.Label (CenterRect (200f, 200f, true).rect, "Testing");
+//						GUI.Label (CenterRect (200f, 200f, false).rect, "Testing");
+
+						//Don't display this
 						GUI.Label (centerRectLeft.rect, currentLabel);
 						GUI.Label (centerRectRight.rect, currentLabel);
 				}
