@@ -13,7 +13,6 @@ public class LightDimmer : MonoBehaviour {
 	public Color dimAmbientColor;
 	public Color normAmbientColor;
 
-	// Use this for initialization
 	void Start () {
 		GameObject[] objs = GameObject.FindGameObjectsWithTag (tagName);
 		foreach (GameObject obj in objs) 
@@ -25,10 +24,6 @@ public class LightDimmer : MonoBehaviour {
 				//torchesObjs = obj.get
 			}
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	}
 
 	public void DimLights()
@@ -52,4 +47,5 @@ public class LightDimmer : MonoBehaviour {
 		}
 		RenderSettings.ambientLight = normAmbientColor;
 	}
+
 }
