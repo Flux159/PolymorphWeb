@@ -252,7 +252,6 @@ public class LevelGenerator : EditorWindow
 
 	void GenerateFish (int i, int j)
 	{
-		GenerateFloor (i, j);
 		GenerateWater (i, j);
 				
 		if (!LevelTransform.FindChild ("Monsters")) {
@@ -261,7 +260,7 @@ public class LevelGenerator : EditorWindow
 			MonsterTransform.parent = LevelTransform;
 		}
 
-		Vector3 newPosition = new Vector3 (i, 1.0f, j);
+		Vector3 newPosition = new Vector3 (i, 0.0f, j);
 		GameObject go = (GameObject)Instantiate (fishPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = MonsterTransform;
 	}
@@ -289,11 +288,8 @@ public class LevelGenerator : EditorWindow
 
 	void GenerateExit (int i, int j)
 	{
-		Vector3 newPosition = new Vector3 (i, 0.0f, j);
-
-		GameObject go = (GameObject)Instantiate (floorPrefab, newPosition, Quaternion.identity);
-		go.transform.parent = LevelTransform;
-		go = (GameObject)Instantiate (exitPrefab, newPosition, Quaternion.identity);
+		Vector3 newPosition = new Vector3 (i, -2.0f, j-0.5f);
+		GameObject go = (GameObject)Instantiate (exitPrefab, newPosition, Quaternion.identity);
 		go.transform.parent = LevelTransform;
 	}
 
@@ -322,7 +318,7 @@ public class LevelGenerator : EditorWindow
 
 	void GenerateWater (int i, int j)
 	{
-		Vector3 newPosition = new Vector3 (i, 0.0f, j);
+		Vector3 newPosition = new Vector3 (i, -1.0f, j);
 		
 		if (!LevelTransform.FindChild ("Waters")) {
 			WaterTransform = new GameObject ().transform;
