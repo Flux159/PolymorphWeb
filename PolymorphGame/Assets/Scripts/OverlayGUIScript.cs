@@ -27,15 +27,15 @@ public class OverlayGUIScript : MonoBehaviour
 		public float nextDialogTime = 2.0f;
 //		private float counter = 0.0f;
 
-		private float mapYValue = 0.7f;
+		private float mapYValue = 0.6f;
 
 		void Start ()
 		{
 				centerRectLeft = CenterRect (200f, 200f, true);
 				centerRectRight = CenterRect (200f, 200f, false);
 				
-				imageRectLeft = CenterRect (200f, 200f, true);
-				imageRectRight = CenterRect (200f, 200f, false);
+				imageRectLeft = ImageCenterRect (200f, 200f, true);
+				imageRectRight = ImageCenterRect (200f, 200f, false);
 
 				i = 0;
 				currentLabel = currentLabels [i];
@@ -83,17 +83,38 @@ public class OverlayGUIScript : MonoBehaviour
 		LTRect CenterRect (float width, float height, bool left)
 		{
 				if (left) {
-						float x = Screen.width / 4.0f - width / 2.0f;
-						float y = Screen.height / 2.0f;
+//						float x = Screen.width / 4.0f - width / 1.5f;
+//						float y = Screen.height / 2.0f;
+						float x = 330f;
+						float y = 400f;
 						return new LTRect (x, y, width, height);
 				} else {
-						float x = 3f * Screen.width / 4.0f - width / 2.0f;
-						float y = Screen.height / 2.0f;
+//						float x = 3f * Screen.width / 4.0f - width / 1.5f;
+//						float y = Screen.height / 2.0f;
+						float x = 930f;
+						float y = 400f;
 						return new LTRect (x, y, width, height);
 				}
 				
 		}
 
+		LTRect ImageCenterRect (float width, float height, bool left)
+		{
+				if (left) {
+						//						float x = Screen.width / 4.0f - width / 1.5f;
+						//						float y = Screen.height / 2.0f;
+						float x = 330f;
+						float y = 200f;
+						return new LTRect (x, y, width, height);
+				} else {
+						//						float x = 3f * Screen.width / 4.0f - width / 1.5f;
+						//						float y = Screen.height / 2.0f;
+						float x = 930f;
+						float y = 200f;
+						return new LTRect (x, y, width, height);
+				}
+		}
+	
 		void OnGUI ()
 		{
 
