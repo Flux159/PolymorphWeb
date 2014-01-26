@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FishCharacter : MonsterFocus {
+public class BatCharacter : MonsterFocus {
 
-	public AudioClip fishDeath;
-	public float fogDensity = 0.5f;
+	public AudioClip batDeath;
 
 	public override bool OnFocus() {
 		// Get all the waters and disable them!!
@@ -12,18 +11,17 @@ public class FishCharacter : MonsterFocus {
 		foreach (GameObject w in waters) {
 			w.SetActive (false);
 		}
-
+		
 		//CHRIS'S AWESOME FISH STUFF
-
-		RenderSettings.fog = true;
-		RenderSettings.fogDensity = fogDensity;
-		RenderSettings.fogColor = new Color (0, 0.1f, 0.12f, .1f);
-
+		
+		RenderSettings.fog = false;
+		RenderSettings.fogDensity = 0.0f;
+		
 		return true;
 	}
 	void OnDestroy() {
-		audio.clip = fishDeath;
+		audio.clip = batDeath;
 		audio.Play ();
-	}
+		}
 }
 
