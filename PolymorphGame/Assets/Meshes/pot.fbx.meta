@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 33e9ca27d89ce4e58af5dcb1d4494ced
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: Camera
     100002: Cube
@@ -12,8 +12,11 @@ ModelImporter:
     400004: Lamp
     400006: //RootNode
     2300000: Cube
+    2300002: //RootNode
     3300000: Cube
+    3300002: //RootNode
     4300000: Cube
+    4300002: PotMesh
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -67,4 +70,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  additionalBone: 0
   userData: 
