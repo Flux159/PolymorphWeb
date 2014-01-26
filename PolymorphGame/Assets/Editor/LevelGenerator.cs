@@ -130,6 +130,7 @@ public class LevelGenerator : EditorWindow
 	{
 		LevelTransform = new GameObject ().transform;
 		LevelTransform.name = LevelName;
+		Debug.Log ("Generating Level! " + texture.width + "/" + texture.height);
 
 		for (int i = 0; i < texture.width; i++) {
 			for (int j = 0; j < texture.height; j++) {
@@ -174,7 +175,6 @@ public class LevelGenerator : EditorWindow
 				}
 			}
 		}
-		Debug.Log ("Generating Level!");
 	}
 
 	bool ColorEquals (Color a, Color b)
