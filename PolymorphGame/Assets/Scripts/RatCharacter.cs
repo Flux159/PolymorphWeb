@@ -8,7 +8,7 @@ public class RatCharacter : MonsterFocus {
 	public override bool OnFocus() {
 		//base.OnFocus (); // SKIP THE PARENT
 		
-		GameObject newCameraController = (GameObject) Instantiate (newPlayerController, transform.position, transform.rotation);
+		GameObject newCameraController = (GameObject) Instantiate (newPlayerController, transform.position+Vector3.up*1.0f, transform.rotation);
 		OverlayGUIScript.CameraController = newCameraController.GetComponentInChildren<OVRCameraController>().gameObject;
 
 		transform.gameObject.SetActive (false);

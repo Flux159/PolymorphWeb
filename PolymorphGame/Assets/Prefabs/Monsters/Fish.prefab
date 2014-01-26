@@ -27,6 +27,7 @@ GameObject:
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -160,10 +161,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 3123870a9c6689d4ca563fd0d104001d, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -237,6 +238,19 @@ MonoBehaviour:
   alive: 1
   newPlayerController: {fileID: 100000, guid: 1fa44073ea7ca489b871d7ccff0b65d8, type: 2}
   fishDeath: {fileID: 8300000, guid: 74ec3d408e8a00142895891c2d72fe24, type: 3}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1649c233cffa404ca27c1f4a2477324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSoundPeriod: 5
+  maxSoundPeriod: 15
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

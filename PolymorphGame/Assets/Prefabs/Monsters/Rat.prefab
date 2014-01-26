@@ -27,6 +27,7 @@ GameObject:
   - 136: {fileID: 13600000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -1551,9 +1552,9 @@ AudioSource:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 916fbce2e58382640b11ba966eed847d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2f266139cb861474dbd5aea6da9fa6cd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1629,6 +1630,19 @@ MonoBehaviour:
   alive: 1
   newPlayerController: {fileID: 100008, guid: 94a881fb1766e4600a4a9eae3cdcc94e, type: 2}
   ratDeath: {fileID: 8300000, guid: 325f398463b8b7f4eaf14ec658aec1b1, type: 3}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1649c233cffa404ca27c1f4a2477324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSoundPeriod: 2
+  maxSoundPeriod: 8
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
