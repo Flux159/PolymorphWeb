@@ -258,9 +258,9 @@ public class OVRCamera : OVRComponent
 				float yRotation = 0.0f;
 				float xRotation = 0.0f;
 				CameraController.GetYRotation (ref yRotation);
-				Debug.Log (xRotation);
+//				Debug.Log (xRotation);
 				CameraController.GetXRotation (ref xRotation);
-				Debug.Log (xRotation);
+//				Debug.Log (xRotation);
 				q = Quaternion.Euler (xRotation, yRotation, 0.0f);
 				dir = q * Vector3.forward;
 				q.SetLookRotation (dir, Vector3.up);
