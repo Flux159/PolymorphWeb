@@ -1,4 +1,4 @@
-Polymorph
+Polymorph Web
 =========
 
 Polymorph Game GGJ 2014
