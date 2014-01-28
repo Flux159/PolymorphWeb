@@ -49,7 +49,7 @@ using System.Collections.Generic;
 public class OVRPlayerController : OVRComponent
 {
 		protected CharacterController 	Controller = null;
-		protected OVRCameraController 	CameraController = null;
+		protected NonOVRCameraController 	CameraController = null;
 	
 		public float Acceleration = 0.1f;
 		public float Damping = 0.15f;
@@ -79,8 +79,10 @@ public class OVRPlayerController : OVRComponent
 		// We can adjust these to influence speed and rotation of player controller
 		private float MoveScaleMultiplier = 1.0f; 
 		private float RotationScaleMultiplier = 1.0f; 
-		private bool  AllowMouseRotation = true;
+		private bool  AllowMouseRotation = false;
 		private bool  HaltUpdateMovement = false;
+
+		public bool startMenu = false;
 
 		// TEST: Get Y from second sensor
 		private float YfromSensor2 = 0.0f;
@@ -100,8 +102,8 @@ public class OVRPlayerController : OVRComponent
 		
 				// We use OVRCameraController to set rotations to cameras, 
 				// and to be influenced by rotation
-				OVRCameraController[] CameraControllers;
-				CameraControllers = gameObject.GetComponentsInChildren<OVRCameraController> ();
+				NonOVRCameraController[] CameraControllers;
+				CameraControllers = gameObject.GetComponentsInChildren<NonOVRCameraController> ();
 		
 				if (CameraControllers.Length == 0)
 						Debug.LogWarning ("OVRPlayerController: No OVRCameraController attached.");
@@ -111,7 +113,7 @@ public class OVRPlayerController : OVRComponent
 						CameraController = CameraControllers [0];	
 				Transform[] tempTrans = CameraController.gameObject.GetComponentsInChildren<Transform> ();
 				foreach (Transform t in tempTrans) {
-						if (t.name == "CameraRight")
+						if (t.name == "NonOVRCamera")
 								rEye = t;
 				}
 				// Instantiate a Transform from the main game object (will be used to 
@@ -136,8 +138,9 @@ public class OVRPlayerController : OVRComponent
 		{
 				base.Start ();
 		
-				InitializeInputs ();	
+				InitializeInputs ();
 				SetCameras ();
+				
 		}
 	
 		// Update 
@@ -363,9 +366,10 @@ public class OVRPlayerController : OVRComponent
 		public virtual void UpdatePlayerForwardDirTransform ()
 		{
 				if ((DirXform != null) && (CameraController != null)) {
-						Quaternion q = Quaternion.identity;
-						q = Quaternion.Euler (0.0f, YfromSensor2, 0.0f);
-						DirXform.rotation = q * CameraController.transform.rotation;
+//						Quaternion q = Quaternion.identity;
+//						q = Quaternion.Euler (0.0f, YfromSensor2, 0.0f);
+//						DirXform.rotation = q * CameraController.transform.rotation;
+						DirXform.rotation = CameraController.transform.rotation;
 				}
 		}
 	

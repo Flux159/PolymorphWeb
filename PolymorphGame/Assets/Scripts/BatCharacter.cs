@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BatCharacter : MonsterFocus {
+public class BatCharacter : MonsterFocus
+{
 
-	public AudioClip batDeath;
+		public AudioClip batDeath;
 
-	public override bool OnFocus() {
-		base.OnFocus ();
+		public override bool OnFocus ()
+		{
+				base.OnFocus ();
 
-		ShowWaterTiles ();
-		if (dimmer != null) { DimLights (); }
-		UnDoFog ();
+				ShowWaterTiles ();
+//		if (dimmer != null) { DimLights (); }
+				UnDoFog ();
 
-		return true;
-	}
+				return true;
+		}
 
-	void OnDestroy() {
-		audio.clip = batDeath;
-		audio.Play ();
-	}
+		void OnDestroy ()
+		{
+				audio.clip = batDeath;
+				audio.Play ();
+		}
 }
 

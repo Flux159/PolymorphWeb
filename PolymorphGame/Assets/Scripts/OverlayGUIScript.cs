@@ -5,7 +5,7 @@ using System.Collections;
 public class OverlayGUIScript : MonoBehaviour
 {
 	
-		LTRect imageRectLeft;
+//		LTRect imageRectLeft;
 		LTRect imageRectRight;
 	
 		public Texture MinimapTexture;
@@ -16,9 +16,9 @@ public class OverlayGUIScript : MonoBehaviour
 
 		void Start ()
 		{
-			CameraController = StartingCameraController;
-			imageRectLeft = ImageCenterRect (200f, 200f, true);
-			imageRectRight = ImageCenterRect (200f, 200f, false);
+				CameraController = StartingCameraController;
+//				imageRectLeft = ImageCenterRect (200f, 200f, true);
+				imageRectRight = ImageCenterRect (200f, 200f, false);
 		}
 
 		LTRect ImageCenterRect (float width, float height, bool left)
@@ -51,8 +51,8 @@ public class OverlayGUIScript : MonoBehaviour
 				  : (CameraController.transform.GetChild (0).forward.normalized.y > mapYValue);
 					
 				if (showMap) {
-					GUI.DrawTexture (imageRectLeft.rect, MinimapTexture);
-					GUI.DrawTexture (imageRectRight.rect, MinimapTexture);
+//						GUI.DrawTexture (imageRectLeft.rect, MinimapTexture);
+						GUI.DrawTexture (imageRectRight.rect, MinimapTexture);
 				}
 
 //				counter += Time.deltaTime;

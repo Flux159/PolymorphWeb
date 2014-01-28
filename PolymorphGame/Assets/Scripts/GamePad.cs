@@ -40,8 +40,41 @@ public class GamePad : MonoBehaviour
 		"joystick button 13",
 		"joystick button 14", "joystick button 10", "joystick button 9", "joystick button 11", "joystick button 12"};
 	
-		private static string[] axisStrings = {"X axis", "Y axis", "4th axis", "6th axis", "5th axis", "6th axis", "7th axis"};
+		private static string[] axisStrings = {
+				"X axis",
+				"Y axis",
+				"4th axis",
+				"6th axis",
+				"5th axis",
+				"6th axis",
+				"7th axis"
+		};
+
 #endif
+#if UNITY_WEBPLAYER
+	private static string[] buttonStrings = {"joystick button 16", "joystick button 17", "joystick button 19", "joystick button 18", 
+		"joystick button 13",
+		"joystick button 14", "joystick button 10", "joystick button 9", "joystick button 11", "joystick button 12"};
+	
+	private static string[] axisStrings = {"X axis", "Y axis", "4th axis", "6th axis", "5th axis", "6th axis", "7th axis"};
+
+#endif
+#if UNITY_IPHONE
+	private static string[] buttonStrings = {"joystick button 16", "joystick button 17", "joystick button 19", "joystick button 18", 
+		"joystick button 13",
+		"joystick button 14", "joystick button 10", "joystick button 9", "joystick button 11", "joystick button 12"};
+	
+	private static string[] axisStrings = {
+		"X axis",
+		"Y axis",
+		"4th axis",
+		"6th axis",
+		"5th axis",
+		"6th axis",
+		"7th axis"
+	};
+#endif
+
 		/*private string a_Button = "joystick button 0";
 	private string b_Button = "joystick button 1";
 	private string y_Button = "joystick button 3";
